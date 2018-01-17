@@ -1,0 +1,1 @@
+﻿document.write("<h1>JavaScript<h1><br>second");//顯示方法2

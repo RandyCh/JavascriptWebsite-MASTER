@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>01varDeclarationTypeTransfer.html</title>
+    <script>
+        //1.變數宣告
+        var a;
+        //定義初始值
+        a = 10;
+        //2.變數宣告時可以同時賦予初始值
+        var a = 10;
+        //3.不宣告變數，直接賦予初始值
+        a = 10;
+        //列印及typeof
+        document.write("a=" + a);//後面的a自動轉型 不需要tostring();
+        document.write("a=" + a + "typeof a=" + typeof a + "<br>");
+       
+
+        //字串變數
+        a = "message";
+        document.write("a=" + a + " typeof a=" + typeof a + "<br>");
+        //"a+b",\a+b\
+        document.write("\\a+b\\");
+        document.write("\"a+b\"" + "<br>");
+        //布林變數
+        var b = true;
+        document.write("b=" + b + " type of b="+typeof b + "<br>");
+        
+        var c = b+1;
+        //true的轉成數值為1
+        document.write("c=" + c + " type of c=" + typeof c + "<br>");
+         //轉成布林值
+        //0、NaN、""、null、undefined轉成boolean值時為false
+        document.write(Boolean(NaN) + "<br>");
+
+        //if (NaN)
+        //    window.write(true);
+        //else
+        //    write(false);
+
+        //null
+        var n = null;
+        document.write("n=" + n + "type of n=" + typeof n + "<br>");//object
+        //如果沒有初始值，JavaScript會自動將變數的值初始化為undefined(預設值 default value)
+        var u;
+        document.write("u=" + u + "type of u=" + typeof u + "<br>");//undefined 
+        //===============================
+        document.write("建立物件，語法一")
+        //建立物件，語法一
+        var person = new Object();
+        //定義物件屬性
+        person.name = "Jack";
+        person.ID = "a123456789";
+        person.age = 35;
+
+        document.write(person.name + "," + person["ID"] + "<br>");
+
+        //建立物件，語法二
+        var car = { brand: "audi", "Max speed": 300 };
+        document.write(car.brand + "-" + car["Max speed"] + "<br>");
+        //global物件的方法 parseInt(),parseFloat() global不是new object 也不是用static=>直接叫用
+        document.write("parseInt(123.45)=" + parseInt("123.45") + "<br>");
+        document.write("parseInt(12a3.45)=" + parseInt("12a3.45") + "<br>");
+        document.write("parseInt(a123.45)=" + parseInt("a123.45") + "<br>");
+
+
+        document.write("parseFloat(5.22A22)=" + parseFloat("5.22A22") + "<br>");
+        document.write("parseFloat(P5.22A22)=" + parseFloat("P5.22A22") + "<br>");
+    </script>
+</head>
+<body>
+
+</body>
+</html>
