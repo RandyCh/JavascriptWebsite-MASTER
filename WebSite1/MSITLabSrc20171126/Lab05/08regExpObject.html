@@ -27,6 +27,9 @@
             var re = new RegExp("/^.+@.+\\..{2,3}$/");//在字串中兩個反斜線才是表現一個反斜線 ch12 p18
             alert(re);
             //RegExp的方法test
+            var re = /^[\u4E00-\u9fff]{2,}$/;
+            //RegExLib.com
+            //http://www.regexlib.com/DisplayPatterns.asp
 			if (re.test(theEmail))
 				alert("successful");
 			else
