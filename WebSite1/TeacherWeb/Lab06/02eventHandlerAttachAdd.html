@@ -9,14 +9,16 @@
         //事件捕獲(capture)階段==>處理目標階段==>事件氣泡(bubbling)階段
         //==============================================================
         document.addEventListener("DOMContentLoaded", function () {
-            document.addEventListener("click", clickDoc, true);  //事件繫結
-            document.getElementById("iddiv1").addEventListener("click", clickDiv1, true);
-            document.getElementById("iddiv2").addEventListener("click", clickDiv2, true);
-                document.addEventListener("click", clickDoc, false);  //事件繫結
-                document.getElementById("iddiv1").addEventListener("click", clickDiv1, false);
-                document.getElementById("iddiv2").addEventListener("click", clickDiv2, false);
+            //document.addEventListener("click", clickDoc, false);  //事件繫結
+            //document.getElementById("iddiv1").addEventListener("click", clickDiv1, true);
+            //document.getElementById("iddiv2").addEventListener("click", clickDiv2, false);
+            //document.addEventListener("click", clickDoc, true);  //事件繫結
+            //document.getElementById("iddiv1").addEventListener("click", clickDiv1, true);
+            //document.getElementById("iddiv2").addEventListener("click", clickDiv2, true);
+            document.addEventListener("click", clickDoc);  //事件繫結
+            document.getElementById("iddiv1").addEventListener("click", clickDiv1);
+            document.getElementById("iddiv2").addEventListener("click", clickDiv2);
         });
-        //執行順序
 
         function clickDoc() {
             alert("document");

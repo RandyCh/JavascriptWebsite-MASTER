@@ -14,37 +14,55 @@
         balls[4] = 123;
         //alert(balls.length);
         //列印陣列語法 1
-        document.write(balls);
+        //document.write(balls);
 
 
         //建立陣列語法 2
-
-
+        var balls2 = new Array("basketball", "baseball", 345);
+        //document.write(balls2);
 
         //建立陣列語法 3
-
-
+        var balls3 = ["basketball", "baseball", "baseball",345];  //array literal
+        //document.write(balls3);
 
         //列印陣列語法 2 -- 使用 for loop
-
+        //for (var i = 0; i < balls3.length; i++) {
+        //    document.write("balls3[" + i + "]=" + balls3[i] + "<br>");
+        //}
 
 
         //列印陣列語法 3 -- 使用 for in 
         //for(obj in arrary|object)
+        for (var obj in balls3) {
+            //document.write("balls3[" + obj + "]=" + balls3[obj] + "<br>");
+        }
 
-        //var strcookie = "name2=Mary;name=Jack";
-
+        document.write("<table>");
+        var strcookie = "name2=Mary;name=Jack";
+        cookieArray = strcookie.split(";");
+        console.log(cookieArray);
+        for (var i = 0; i < cookieArray.length; i++) {
+            thisCookie = cookieArray[i].split("=");
+            console.log(thisCookie);            
+            cookieName = decodeURI(thisCookie[0]);
+            cookieValue = decodeURI(thisCookie[1]);
+            document.writeln("<tr><td style='border:solid red 2px'>" + cookieName + "</td><td style='border:solid red 2px'>" + cookieValue + "</td></tr>");
+        }
+        document.writeln("</table>");
 
         //在陣列後面新增一個元素
+        balls3.push("item");
+        //alert(balls3);
 
         //刪除陣列最後一個元素
-
-        /*
+        balls3.pop();
+        //alert(balls3);
+     
             var balls=["basketball","baseball","tennis","volleyball",123];
             document.write("join('-')="+balls.join("-")+"<br>");
             document.write("reverse().join('=>')="+balls.reverse().join("=>")+"<br>");
             document.write("sort()="+balls.sort()+"<br>");
-       */
+      
     </script>
 </head>
 <body>

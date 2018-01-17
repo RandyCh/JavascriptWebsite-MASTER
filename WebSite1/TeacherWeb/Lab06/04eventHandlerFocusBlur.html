@@ -17,20 +17,27 @@
         });
 
         function blur() {
-            document.bgColor = "blue";
+            document.bgColor = "green";            
         }
 
         function focus() {
-            document.bgColor = "green";
+            document.bgColor = "blue";
         }
 
         function change() {
             document.fgColor = "yellow";
-            document.getElementById("idinput").style.color = "red";
+            document.getElementById("idinput").style.color = "red";           
         }
 
         function ckName() {
-          
+            var theName = document.getElementById("idName").value;
+
+            if (theName == "")
+                document.getElementById("idsp").innerHTML = "<img src='Images/error.png' />you must enter";
+                //document.getElementById("idName").insertAdjacentHTML("AfterEnd", "<img src='Images/error.png' />you must enter");
+            else
+                document.getElementById("idsp").innerHTML = "ok";
+
         }
     </script>
 </head>
@@ -39,7 +46,7 @@
 	<h1>this is h1</h1>
     <hr />
     name:<input type="text" id="idName" />
-    <span id="idsp"></span>
+    <span id="idsp" style="color:red"></span>    
     <br />
     password:<input type="password" id="idPwd" />
 </body>
