@@ -1,36 +1,75 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>03eventHandlerMouseoverout.html</title>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("idimg").addEventListener("mouseover",mouseover);  //事件繫結，滑鼠滑入
-            document.getElementById("idimg").addEventListener("mouseout", mouseout);    //事件繫結，滑鼠滑出
-            document.getElementById("idimg2").addEventListener("mouseover", mouseover2);  //事件繫結，滑鼠滑入
-            document.getElementById("idimg2").addEventListener("mouseout", mouseout2);    //事件繫結，滑鼠滑出
-        });
-
-        function mouseover()
-        {
-            document.getElementById("idimg").src ="Images/chngstar.gif";
+    <script src="https://use.fontawesome.com/e8bbdd1d52.js"></script>
+    <style>
+        table {
+            margin: 0 auto;
+            text-align: center;
+            border-collapse: collapse;
+            border: 1px solid #d4d4d4;
+            font-size: 20px;
+            background: #fff;
         }
 
-        function mouseout()
-        {
-            document.getElementById("idimg").src ="Images/star.gif";
-        }
-        function mouseover2() {
-            document.getElementById("idimg2").src ="Images/chngstar.gif";
+            table th,
+            table tr:nth-child(2n+ 2) {
+                background: #e7e7e7;
+            }
+
+            table th,
+            table td {
+                padding: 20px 50px;
+            }
+
+            table th {
+                border-bottom: 1px solid #d4d4d4;
+            }
+
+        .stars-outer {
+            display: inline-block;
+            position: relative;
+            font-family: FontAwesome;
         }
 
-        function mouseout2() {
-            document.getElementById("idimg2").src ="Images/star.gif";
+            .stars-outer::before {
+                content: "\f006 \f006 \f006 \f006 \f006";
+            }
+
+        .stars-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
         }
-    </script>
+
+            .stars-inner::before {
+                content: "\f005 \f005 \f005 \f005 \f005";
+                color: #f8ce0b;
+            }
+    </style>
+
 </head>
 <body>
-    <img id="idimg" src="Images/star.gif" />
-    <img id="idimg2" src="Images/star.gif" />
+    <table>
+        <thead>
+            <tr>
+                <th>Hotel</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="hotel_a">
+                <td>Hotel A</td>
+                <td>
+                    <div class="stars-outer">
+                        <div class="stars-inner"></div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
