@@ -20,8 +20,9 @@
         }
 
         //取消事件氣泡bubbling(stopPropagation())
-        function divClick(nsEvent) {
+        function divClick() {
             window.alert("div");
+            event.stopPropagation();
             
         }
 

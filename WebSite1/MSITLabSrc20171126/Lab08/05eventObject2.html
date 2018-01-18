@@ -5,9 +5,14 @@
     <title>05eventObject.html</title>
     <script>
         //鍵盤事件繫結
-        document.addEventListener("keydown", keyDown);  //大寫鍵，控制鍵        
+        //英文大寫鍵 abcd
+        //控制鍵 ctrl alt tab
+        document.addEventListener("keydown", keyDown);  //英文大寫鍵，控制鍵        
+        //document.addEventListener("keypress", keyDown); //英文大小寫鍵
         function keyDown(nsevent) {
-            var theEvent = nsevent || window.event;            
+            var theEvent = nsevent || window.event;
+            alert(theEvent.keyCode);
+            alert(nsevent); //object keyboardevent 類別
             if (theEvent.altKey) alert("ALT");
             if (theEvent.ctrlKey) alert("CTRL");
             if (theEvent.shiftKey) alert("SHIFT");
@@ -17,9 +22,13 @@
         //JavaScript屬性事件處理程序(IE9以上)
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("idbut").addEventListener("click",CoordXY);     //事件繫結      
-        });    
+        });                                                                        //不需要寫回傳事件 就會有event了
 
-        function CoordXY() {
+        function CoordXY(nsevent) {
+            var theEvent = nsevent || event;
+            alert("screenX=" + theEvent.screenX + "\n" +
+                "clientX=" + theEvent.clientX + "\n" +
+                "offsetX=" + theEvent.offsetX);
 
         }
     </script>

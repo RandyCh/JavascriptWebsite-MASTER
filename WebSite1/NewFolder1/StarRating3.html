@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="rating">
+        <span id="star1">
+            <img src="images/star.gif" alt="1" />
+        </span>
+        <span id="star2">
+            <img src="images/star.gif" alt="2" />
+        </span>
+        <span id="star3">
+            <img src="images/star.gif" alt="3" />
+        </span>
+        <span id="star4">
+            <img src="images/star.gif" alt="4" />
+        </span>
+        <span id="star5">
+            <img src="images/star.gif" alt="5" />
+        </span>
+    </div>
+    <div id="rating">
+        <span id="star1"><img src="images/star.gif" alt="1" />
+            <span id="star2"><img src="images/star.gif" alt="2" /></span>
+        <span id="star3"><img src="images/star.gif" alt="3" /></span>
+        </span>
+        
+        
+        <span id="star4">
+            <img src="images/star.gif" alt="4" />
+        </span>
+        <span id="star5">
+            <img src="images/star.gif" alt="5" />
+        </span>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("star1").addEventListener("click", rateTheStar1);  //事件繫結，滑鼠滑入
+            document.getElementById("star2").addEventListener("click", rateTheStar2);
+            document.getElementById("star3").addEventListener("click", rateTheStar3);
+            document.getElementById("star4").addEventListener("click", rateTheStar4);
+            document.getElementById("star5").addEventListener("click", rateTheStar5);
+        });
+        function recoverStars() {
+
+            document.getElementById("star1").innerHTML = "<img src='images/star.gif'/>";
+            document.getElementById("star2").innerHTML = "<img src='images/star.gif'/>";
+            document.getElementById("star3").innerHTML = "<img src='images/star.gif'/>";
+            document.getElementById("star4").innerHTML = "<img src='images/star.gif'/>";
+            document.getElementById("star5").innerHTML = "<img src='images/star.gif'/>";
+
+
+        }
+        function rateTheStar1() { document.getElementById("star1").innerHTML = "<img src='images/chngstar.gif'/>" };
+        function rateTheStar2() { document.getElementById("star2").innerHTML = "<img src='images/chngstar.gif'/>"; rateTheStar1() };
+        function rateTheStar3() { document.getElementById("star3").innerHTML = "<img src='images/chngstar.gif'/>"; rateTheStar2() };
+        function rateTheStar4() { document.getElementById("star4").innerHTML = "<img src='images/chngstar.gif'/>"; rateTheStar3() };
+        function rateTheStar5() { document.getElementById("star5").innerHTML = "<img src='images/chngstar.gif'/>"; rateTheStar4() };
+    </script>
+</body>
+</html>

@@ -3,13 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>09imageObject.html</title>
-    <link rel="icon" href="images/EEIT_logo.png" type="image/x-icon" />
+    <link rel="icon" href="images/EEIT_logo.png" type="image/x-icon" /><!--title圖案-->
     <script>
         //=============================================================
         //1. 使用<area>物件的id
         //2. 使用 document.getElementsByTagName("area")取得所有area元素
         //3. 使用 document.querySelectorAll("area")取得所有area元素(slide 90) 
         //=============================================================
+        document.title = "MSIT117";
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("idTaipei").addEventListener("mouseover",mouseOver);//事件繫結
             document.getElementById("idTaipei").addEventListener("mouseover",mouseOut);

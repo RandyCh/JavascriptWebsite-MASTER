@@ -19,19 +19,27 @@
         //回傳4 表示使用者按下滾輪
         //回傳2 表示使用者按下右鍵
         function FirefoxmouseDown(nsevent) {  //以event物件作為參數來使用
-            alert(nsevent);
+            alert(typeof nsevent);//object
             alert(nsevent.type);
             alert(nsevent.button);
         }
+
+        function CombinemouseDown(nsevent) {
+            //var theEvent = nsevent ? nsevent : window.event;//三元運算子
+            var theEvent = nsevent || window.event;//第二章除了0,-0,NaN NULL undefined會轉為false,其他都是true
+            alert(theEvent.type);
+            alert(theEvent.button);
+        }
       
 
-        //JavaScript屬性事件處理程序(IE9以上)
+        //JavaScript屬性事件處理程序-第三種寫法(IE9以上)
         document.addEventListener("DOMContentLoaded", function () {  
-            //document.getElementById("idmouse2").addEventListener("mousedown", mouseDown);  //事件繫結                              
+            document.getElementById("idmouse2").addEventListener("mousedown", CombinemouseDown);  //事件繫結  
+            //document.getElementById("idmouse2").attactEvent("mousedown", CombinemouseDown);  //事件繫結 IE8 
         });
 
 
-        //JavaScript屬性事件處理程序(IE8以下)
+        //JavaScript屬性事件處理程序第二種寫法(IE8以下)
         //window.onload=function(){
         //    document.getElementById("idmouse2").onmousedown = mouseDown;
         //}           
@@ -44,7 +52,9 @@
     <!-- Firefox-->
     <input type="button" id="idmouseFx" value="HTML屬性事件(Firefox)" onmousedown="FirefoxmouseDown(event);" />
 
+    <!-- Firefox IE-->
+    <input type="button" id="idmouseCombine" value="HTML屬性事件(結合兩種)" onmousedown="CombinemouseDown(event);" />
     <!--JavaScript屬性事件處理程序-->
-    <input type="button" id="idmouse2" value="JavaScript屬性事件" />    
+    <input type="button" id="idmouse2" value="JavaScript屬性事件" />
 </body>
 </html>

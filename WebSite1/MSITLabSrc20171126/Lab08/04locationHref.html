@@ -11,7 +11,9 @@
         function redirect() {
             //http://www.w3schools.com/jsref/dom_obj_select.asp
             //取得在下拉式選單所選取的索引(selectedIndex)
- 
+          //alert(this.selectedIndex);
+            var linkAry = ["#", "http://taipei.iiiedu.tw", "", "http://www.google.com"];
+            location.href = linkAry[this.selectedIndex];
         }
     </script>
 </head>
