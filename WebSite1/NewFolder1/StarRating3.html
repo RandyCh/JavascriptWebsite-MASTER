@@ -22,6 +22,7 @@
             <img src="images/star.gif" alt="5" />
         </span>
     </div>
+
     <div id="rating">
                 <img src="images/star.gif" class="star" id="1"/>
                 <img src="images/star.gif" class="star" id="2"/>
@@ -33,32 +34,24 @@
         document.addEventListener("DOMContentLoaded", function () {
            
             //document.getElementById("star1").addEventListener("click", rateTheStar1);  //事件繫結，滑鼠滑入
-            var areas = document.querySelectorAll("img.star");//標籤.class
-            var areasLen = areas.length;
+            var imgs = document.querySelectorAll("img.star");//標籤.class
+            var imgsLen = areas.length;
             alert(areasLen);
-            //for (var i = 0; i < areasLen; i++) {
-            //    areas[i].addEventListener("mouseover", mouseOver);
-            //    areas[i].addEventListener("mouseout", mouseOut);
-            //    areas[i].addEventListener("click", Click);
-            //}
+            for (var i = 0; i < imgsLen; i++) {
+                imgs[i].addEventListener("mouseover", mouseOver);
+                imgs[i].addEventListener("mouseout", mouseOut);
+                imgs[i].addEventListener("click", Click);}
             });
         function mouseOver() {
-            document.getElementById("").innerHTML = "<img src='images/chngstar.gif'/>";
+            document.getElementById()
         }
-
-
-
-
-
-        function recoverStars() {
-
-            document.getElementById("star1").innerHTML = "<img src='images/star.gif'/>";
+        function mouseOut() {
+            document.getElementById("") = "<img src='images/chngstar.gif'/>";
         }
-        function rateTheStar1() { document.getElementById("star1").innerHTML = "<img src='images/chngstar.gif'/>" };
-        function rateTheStar2() { document.getElementById("star2").innerHTML = "<img src='images/chngstar.gif'/>"; rateTheStar1() };
-        function rateTheStar3() { document.getElementById("star3").innerHTML = "<img src='images/chngstar.gif'/>"; rateTheStar2() };
-        function rateTheStar4() { document.getElementById("star4").innerHTML = "<img src='images/chngstar.gif'/>"; rateTheStar3() };
-        function rateTheStar5() { document.getElementById("star5").innerHTML = "<img src='images/chngstar.gif'/>"; rateTheStar4() };
+        function Click() {
+
+            document.querySelectorAll("img.star").src="images/chngstar.gif";
+        }
     </script>
 </body>
 </html>
