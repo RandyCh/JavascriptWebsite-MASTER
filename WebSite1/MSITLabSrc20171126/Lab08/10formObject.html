@@ -43,13 +43,17 @@
         }
 
         function submitf() {
-
+            var theName = document.getElementsByName("txtName")[0].value;
+            if (theName == "")
+                document.getElementById("idsp").innerHTML = "you must enter";
+            else
+                document.forms[0].submit();
 
         }
     </script>
 </head>
 <body>
-    <form action="get..aspx" method="get">
+    <form action="get.aspx" method="get">
 			name:<input type="text" name="txtName" value="abc" /><span id="idsp"></span><br/>
 			<input type="checkbox" name="hobby" checked="checked" id="idName" value="reading"/>reading
 			<input type="checkbox" name="hobby" value="game"/>game
