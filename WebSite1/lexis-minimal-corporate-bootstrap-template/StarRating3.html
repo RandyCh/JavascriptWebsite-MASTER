@@ -6,51 +6,43 @@
 </head>
 <body>
     <div id="rating">
-        <span id="star1">
-            <img src="images/star.gif" alt="1" />
-        </span>
-        <span id="star2">
-            <img src="images/star.gif" alt="2" />
-        </span>
-        <span id="star3">
-            <img src="images/star.gif" alt="3" />
-        </span>
-        <span id="star4">
-            <img src="images/star.gif" alt="4" />
-        </span>
-        <span id="star5">
-            <img src="images/star.gif" alt="5" />
-        </span>
-    </div>
-
-    <div id="rating">
                 <img src="images/star.gif" class="star" id="1"/>
                 <img src="images/star.gif" class="star" id="2"/>
                 <img src="images/star.gif" class="star" id="3"/>
                 <img src="images/star.gif" class="star" id="4"/>
                 <img src="images/star.gif" class="star" id="5"/>
-    </div>
+    </div><span id="rate"></span>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-           
             //document.getElementById("star1").addEventListener("click", rateTheStar1);  //事件繫結，滑鼠滑入
             var imgs = document.querySelectorAll("img.star");//標籤.class
-            var imgsLen = areas.length;
-            alert(areasLen);
+            var imgsLen = imgs.length;
             for (var i = 0; i < imgsLen; i++) {
                 imgs[i].addEventListener("mouseover", mouseOver);
                 imgs[i].addEventListener("mouseout", mouseOut);
                 imgs[i].addEventListener("click", Click);}
             });
         function mouseOver() {
-            document.getElementById()
+            var targetid = event.currentTarget.id;
+            for (i = 1; i <= targetid; i++) {
+                document.getElementById(i).src = "images/chngstar.gif";
+            }
+            
         }
         function mouseOut() {
-            document.getElementById("") = "<img src='images/chngstar.gif'/>";
+            var targetid = event.currentTarget.id;
+            for (i = 1; i <= targetid; i++) {
+                document.getElementById(i).src = "images/star.gif";
+            }
         }
         function Click() {
-
-            document.querySelectorAll("img.star").src="images/chngstar.gif";
+            var imgs = document.querySelectorAll("img.star");//標籤.class
+            var imgsLen = imgs.length;
+            for (var i = 0; i < imgsLen; i++) {
+                imgs[i].removeEventListener("mouseout", mouseOut);
+                imgs[i].removeEventListener("mouseover", mouseOver);
+            }
+            document.getElementById("rate").innerHTML = event.currentTarget.id+"颗星";
         }
     </script>
 </body>
