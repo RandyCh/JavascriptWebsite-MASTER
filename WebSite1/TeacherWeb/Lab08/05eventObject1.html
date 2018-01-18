@@ -15,35 +15,50 @@
 
 
         //IE8以下的瀏覽器(window 7),HTML屬性事件
-        //回傳1 表示使用者按下左鍵
-        //回傳4 表示使用者按下滾輪
-        //回傳2 表示使用者按下右鍵
+        //回傳1 表示使用者按下左鍵,firefox,chrome 回傳0
+        //回傳4 表示使用者按下滾輪,firefox,chrome 回傳1
+        //回傳2 表示使用者按下右鍵,firefox,chrome 回傳2
         function FirefoxmouseDown(nsevent) {  //以event物件作為參數來使用
-            alert(nsevent);
+            alert(typeof nsevent);  //object
+            alert(nsevent);  //[object MouseEvent]
             alert(nsevent.type);
             alert(nsevent.button);
         }
-      
+
+
+        function mouseDown(nsevent) {  //以event物件作為參數來使用
+            //var theEvent = nsevent ? nsevent : window.event; //三元運算子
+            var theEvent = nsevent || window.event; 
+            //if (nsevent)
+            //    theEvent = nsevent;
+            //else
+            //    theEvent = event;
+
+            alert(theEvent.type);
+            alert(theEvent.button);
+        }
 
         //JavaScript屬性事件處理程序(IE9以上)
         document.addEventListener("DOMContentLoaded", function () {  
-            //document.getElementById("idmouse2").addEventListener("mousedown", mouseDown);  //事件繫結                              
+            document.getElementById("idmouse2").addEventListener("mousedown", mouseDown);  //事件繫結
+            //document.getElementById("idmouse2").attachEvent("mousedown", mouseDown);  //事件繫結 IE8
         });
 
 
         //JavaScript屬性事件處理程序(IE8以下)
         //window.onload=function(){
-        //    document.getElementById("idmouse2").onmousedown = mouseDown;
+        //    document.getElementById("idmouse2").onmousedown = mouseDown;        
         //}           
     </script>
 </head>
 <body>
     <!--HTML屬性事件處理程序-->
-    <!-- IE -->
-    <input type="button" id="idmouseIE" value="HTML屬性事件(IE)" onmousedown="IEmouseDown();" />
+    <!-- IE8 -->
+    <!--<input type="button" id="idmouseIE" value="HTML屬性事件(IE)" onmousedown="IEmouseDown();" />-->
+    <input type="button" id="idmouseIE" value="HTML屬性事件(IE)" onmousedown="mouseDown();" />
     <!-- Firefox-->
-    <input type="button" id="idmouseFx" value="HTML屬性事件(Firefox)" onmousedown="FirefoxmouseDown(event);" />
-
+    <!--<input type="button" id="idmouseFx" value="HTML屬性事件(Firefox)" onmousedown="FirefoxmouseDown(event);" />-->
+    <input type="button" id="idmouseFx" value="HTML屬性事件(Firefox)" onmousedown="mouseDown(event);" />
     <!--JavaScript屬性事件處理程序-->
     <input type="button" id="idmouse2" value="JavaScript屬性事件" />    
 </body>

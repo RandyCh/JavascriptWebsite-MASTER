@@ -15,7 +15,7 @@
             var theName = document.forms[0].txtName.value;
             var theName = document.forms[0].elements[0].value;
             var theName = document.getElementsByName("txtName")[0].value;
-            //alert(theName);
+            //alert(theName);           
             var eles = document.forms[0].elements;
             var elesLen = eles.length;
             //alert(elesLen);
@@ -31,12 +31,16 @@
         }
 
         function submitf() {
-            
+            var theName = document.getElementsByName("txtName")[0].value;
+            if (theName == "")
+                document.getElementById("idsp").innerHTML = "you must enter";
+            else
+                document.forms[0].submit();
         }
     </script>
 </head>
 <body>
-    <form action="get.aspx" method="get">
+    <form action="get.aspx" method="post">
 			name:<input type="text" name="txtName" id="idName" value="abc" /><span id="idsp"></span><br/>
 			<input type="checkbox" name="hobby" checked="checked" value="reading"/>reading
 			<input type="checkbox" name="hobby" value="game"/>game

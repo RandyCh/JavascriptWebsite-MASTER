@@ -5,21 +5,34 @@
     <title>02setclock.html</title>
     <script>        
         document.addEventListener("DOMContentLoaded", function () {
+            setClock();           
+        });
+
+        function setClock() {
             //建立日期
-
+            var d = new Date();
             //取得秒數，分割為兩位數
-
+            var s = d.getSeconds();
+            //alert(s);  //53==>53/10=5.3 parseInt(5.3)=5,53%10=3
+            var s1 = parseInt(s / 10);  //5
+            var s2 = s % 10;  //3
 
             //顯示圖片，對應秒數
+            //document.getElementById("picS1").src = "WinImages/1.gif";
+            document.getElementById("picS1").src = "WinImages/" + s1 + ".gif";
+            document.getElementById("picS2").src = "WinImages/" + s2 + ".gif";
+        }
+        window.setInterval(setClock, 1000);
 
-        });
     </script>
 </head>
 <body> 
-    <img alt="" src="WinImages/0.gif" /><img alt="" src="WinImages/1.gif" />:<img alt="" src="WinImages/2.gif" /><img alt="" src="WinImages/3.gif" />
-    <!--
-    <img alt="" id="picH1" /><img alt="" id="picH2" />:<img alt="" id="picM1" /><img alt="" id="picM2" />:<img alt="" id="picS1" /><img alt="" id="picS2" />
-    -->
+  <!--  <img alt="" src="WinImages/0.gif" /><img alt="" src="WinImages/1.gif" />:<img alt="" src="WinImages/2.gif" /><img alt="" src="WinImages/3.gif" />
+     -->
+    <img alt="" id="picH1" /><img alt="" id="picH2" />:
+    <img alt="" id="picM1" /><img alt="" id="picM2" />:
+    <img alt="" id="picS1" /><img alt="" id="picS2" />
+   
 
 </body>
 </html>
