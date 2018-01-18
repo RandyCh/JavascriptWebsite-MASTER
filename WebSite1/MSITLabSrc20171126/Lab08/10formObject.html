@@ -11,7 +11,31 @@
         });
 
         function checkf() {
+            //get 物件方法
+//get by id
+          //var theName = document.getElementById("idName").value;
+//使用forms和elements存取欄位資料
+           // var theName = document.forms[0].txtName.value;
+           // var theName = document.forms[0].elements[0].value;
+ //get by Name
+           // var theName = document.getElementsByName("txtName")[0].value;
+//alter(theName);
+            var eles = document.forms[0].elements;
+//get by tagName
+            //var areas = document.getElementByTagName("form");
+//queryselectorall 
+         // var areas = document.querySelectorAll("area.imgbut");//標籤.class
 
+
+
+            var elesLen = eles.length;
+            //alert(elesLen);
+            for (var i = 0; i < elesLen; i++) {
+                //alter(eles[i].tagName);
+                if (eles[i].checked) {
+                    alert(eles[i].value)
+                }
+            }
         }
 
         function resetf() {
@@ -20,13 +44,14 @@
 
         function submitf() {
 
+
         }
     </script>
 </head>
 <body>
     <form action="get..aspx" method="get">
 			name:<input type="text" name="txtName" value="abc" /><span id="idsp"></span><br/>
-			<input type="checkbox" name="hobby" checked="checked" value="reading"/>reading
+			<input type="checkbox" name="hobby" checked="checked" id="idName" value="reading"/>reading
 			<input type="checkbox" name="hobby" value="game"/>game
 			<input type="checkbox" name="hobby" value="sleep"/>sleep
 			<br/>
