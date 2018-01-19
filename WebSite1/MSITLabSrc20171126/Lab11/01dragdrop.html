@@ -19,48 +19,58 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("dragItem").addEventListener("dragstart", dragStartHandler);
+
             document.getElementById("dropZone").addEventListener("dragover", dragoverHandler);
             document.getElementById("dropZone").addEventListener("drop", dropHandler);
+
             document.getElementById("dropZone1").addEventListener("dragover", dragoverHandler);
             document.getElementById("dropZone1").addEventListener("drop", dropHandler);
         });
 
-        function dragStartHandler(e) {
+        function dragStartHandler(event) {
             //儲存要拖放的資料
+            //alert(event.target.id);//dragItem
+            event.dataTransfer.setData("text/plain",event.target.id);//暫存到event.datatransfer
 
         }
 
 
-        function dragoverHandler(e) {
+        function dragoverHandler(event) {
             //取消預設動作
+            event.preventDefault();//原本都禁止放入 取消預設
         }
 
         function dropHandler(e) {
             //取消預設動作
+            e.preventDefault();
 
             //取出拖放資料
-
+            var eleID = e.dataTransfer.getData("text/plain"); //id="dragItem"
+            var eleObj = document.getElementById(eleID);//<div id="dragItem"></div>
             //建立div元素
-
+            var eleDiv = document.createElement("div");
+            eleDiv.innerHTML = eleObj.innerHTML;
 
             //設定屬性及外觀
-
+            eleDiv.setAttribute("class", "dragItemStyle");
 
 
             //新增到dropZone or dropZone1元素後面
-
+            //alert(e.currentTarget.id);
+            e.currentTarget.appendChild(eleDiv);
 
         }
     </script>
 </head>
 <body>
+    <div id="dragItem" draggable="true">Drag me</div>
+    <div id="dropZone"></div>
+    <div id="dropZone1"></div>
     <!--
       <div id="dragItem" draggable="true" ondragstart="dragStartHandler(event)">Drag me</div>
       <div id="dropZone"  ondragover="dragoverHandler(event)" ondrop="dropHandler(event)"></div>
       <div id="dropZone1"  ondragover="dragoverHandler(event)" ondrop="dropHandler(event)"></div>
     -->
-    <div id="dragItem" draggable="true">Drag me</div>
-    <div id="dropZone"></div>
-    <div id="dropZone1"></div>
+
 </body>
 </html>
