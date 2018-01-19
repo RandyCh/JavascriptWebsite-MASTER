@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .frame{ width:300px;
+                height:300px;
+        }
+        .but {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset style="width:300px">
+            <legend style="text-shadow:-1px -1px white, 1px 1px #333">Ads Carousel</legend>
+            <div style="border:1px solid black;">
+                <img id="idImg" src="images/cat1.jpg" class="frame" />
+            </div>
+
+                <div style="margin:auto; border:1px solid black;">
+                    <snap id="numbpicarea" style="margin:auto; border:1px solid black;">
+                    </snap>
+                </div>
+
+                <div style="width:300px">
+                    <div style="margin:auto; border:1px solid black; width:220px">
+                        <img class="but" src="images/first.png" id="firstpic" />
+                        <img class="but" src="images/git.png" id="play" />
+                        <img class="but" src="images/pause.png" id="pause" />
+                        <img class="but" src="images/last.png" id="lastpic" />
+                    </div>
+                </div>
+
+        </fieldset>
+    </form>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        for (var i = 1; i <= 7; i++) {
+            var x = document.createElement("img");
+            x.setAttribute("src", "images/" + i + "b.png");
+            x.setAttribute("class", "point");
+            x.setAttribute("id", "pic" + i);
+            document.getElementById("numbpicarea").appendChild(x)
+
+        }
+
+        var imgs = document.querySelectorAll("img.point");//標籤.class
+        var imgsLen = imgs.length;
+        alert(imgsLen);
+        for (var i = 0; i < imgsLen; i++) {
+            imgs[i].addEventListener("mouseover", mouseOver);
+            //imgs[i].addEventListener("mouseout", mouseOut);
+            //imgs[i].addEventListener("click", Click);
+        }
+    });
+    window.setInterval(playpic, 3000);
+
+    function mouseOver(event) {
+        var picnumb = ((event.target.id).charAt(3));
+        document.getElementById("idImg").setAttribute("src", "images/cat" + picnumb + ".jpg");
+        document.getElementById("idImg").setAttribute("class", "frame");
+    }
+    function playpic() {
+        var fullName = document.getElementById("idImg").src
+        var fullNameArr = fullName.split("/");
+        var numNext = parseInt(fullNameArr[5].charAt(3)) + 1;
+        if (numNext==8) {
+            numNext=1;
+            document.getElementById("idImg").src="images/cat"+ numNext +".jpg";
+        }
+        else {
+            document.getElementById("idImg").src="images/cat"+ numNext +".jpg";
+        }
+    }
+</script>
+</body>
+</html>
