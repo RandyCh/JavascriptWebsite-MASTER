@@ -12,21 +12,21 @@
         function CreateElement() {
             var theDIV = document.getElementById("iddiv");  //取得div物件
 
-            var eleP = document.createElement("p");//<p></p>
-            var txtP = document.createTextNode("Hello World");//hello world
-            eleP.appendChild(txtP);//<p>Hello World</p>
+            var eleP = document.createElement("p");  //<p></p>
+            var txtP = document.createTextNode("Hello World");  //Hello World
+            eleP.appendChild(txtP);      //<p>Hello World</p>
 
-            theDIV.appendChild(eleP);// <div id="iddiv">div<p>Hello World</p></div>
+            theDIV.appendChild(eleP);   //<div id="iddiv">div<p>Hello World</p></div>
 
-            var eleImg = document.createElement("img");//<img>
-            eleImg.setAttribute("src", "DOM/DOMImage/rabbit-hat.gif"); //<img src="DOM/DOMImage/rabbit-hat.gif">
+            var eleImg = document.createElement("img");   //<img>
+            eleImg.setAttribute("src", "DOM/DOMImage/rabbit-hat.gif");     //<img src="DOM/DOMImage/rabbit-hat.gif">
             eleImg.setAttribute("id", "idImg");
 
-            theDIV.appendChild(eleImg);// <div id="iddiv">div<p>Hello World</p><img src="DOM/DOMImage/rabbit-hat.gif"></div>
+            theDIV.appendChild(eleImg);  //<div id="iddiv">div<p>Hello World</p><img src="DOM/DOMImage/rabbit-hat.gif"></div>
         }
         function RemoveElement() {
             var theNode = document.getElementById("idImg");
-            //theNode.parentNode.removeChild(theNode);//舊的寫法
+            //theNode.parentNode.removeChild(theNode);
             theNode.remove();
         }
     </script>
@@ -36,6 +36,5 @@
     <div id="iddiv">div</div>
     <input type="button" id="CEle" value="CreateElement">
     <input type="button" id="REle" value="RemoveElement">
-
 </body>
 </html>

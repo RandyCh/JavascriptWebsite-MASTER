@@ -6,20 +6,47 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {      
             for (i = 1; i <= 12; i++) {   //新增月 
-                var opt = document.createElement("option");
-                opt.setAttribute("value", i);
-                var optTxt = document.createTextNode(i);
-                opt.appendChild(optTxt);
+                var opt = document.createElement("option");//<option></option>
+                opt.setAttribute("value", i); //<option value=i></option >
+                var optTxt = document.createTextNode(i);//i
+                opt.appendChild(optTxt); //<option value=i>i</option >
                 //opt.value = i;
                 //opt.innerHTML = i;
                 document.getElementById('idSelectMonth').appendChild(opt);
+                document.getElementById('idSelectMonth').addEventListener("change", addDate);
+                document.getElementById('ClearMonth').addEventListener("click", ClearDate);
             }
 
         });
+        var d = new Date(2018, 1,29);//沒有這天 就會變成三月一號
+        //var d = new Date(2018, 1, 0);//二月的第0天;一月的最後一天
+        alert(d);
+        alert(d.getDate());
+        function addDate() {
+            //alert(this.value);
+            var theMonth = document.getElementById("idSelectMonth").value;
+            alert(theMonth);
+        }
+        function ClearDate() {
+            //document.getElementById("idSelectMonth").innerHTML = "";
+            var theMonths = document.getElementById("idSelectMonth");
+            var theMonthsLen = theMonths.length;
+            alert(theMonthsLen);
+            for (var i = 0; i < theMonthsLen; i++) {
+                //theMonths.firstChild.remove();
+                theMonths.childNodes[0].remove();//每次remove第一個  第二個就會變成第一個了
+            }
+        }
 	</script>
 	</head>
-	<body>
-		<select id="idSelectMonth"></select>
-	</body>
+<body>
+    <select id="idSelectMonth"></select>
+    <input type="button" id="ClearMonth" value="ClearMonth">
+    <select>
+        <option value="1">A</option>
+        <option value="2">B</option>
+        <option value="3">C</option>
+    </select>
+</body>
 
 </html>

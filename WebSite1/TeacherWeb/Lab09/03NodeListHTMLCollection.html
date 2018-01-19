@@ -15,37 +15,37 @@
             document.getElementById("idcheck").addEventListener("click",check);
         });
         function check() {
-            
+          /*
             //NodeList
-            var theHobbys = document.getElementsByName("hobby");
-            alert(theHobbys);  //[object NodeList] node list的物件
-            //var theSelectors = document.querySelectorAll("input");
+            var theHobbys = document.getElementsByName("hobby");  //objects
+            //alert(theHobbys);  //[object NodeList]
+            var theSelectors = document.querySelectorAll("input");
             //alert(theSelectors); //[object NodeList]
             var theHobbysLen = theHobbys.length;
 
             for (var i = 0; i < theHobbysLen; i++) {
                 //console.log(theHobbys.item(i).value);
-                console.log(theHobbys[i].value);
+                //console.log(theHobbys[i].value);
             }
-           
+          */
 
 
-            
+           /*
             //HTMLCollection
             var theInputs = document.getElementsByTagName("input");
             //alert(theInputs);  //[object HTMLCollection]
-            //var theClass = document.getElementsByClassName("ch");
+            var theClass = document.getElementsByClassName("ch");
             //alert(theClass);  //[object HTMLCollection]
-            var theInputsLen = theInputs.length;
-
-            for (var i = 0; i < theInputsLen; i++) {
-                //console.log(theInputs.item(i).value);
-                //console.log(theInputs[i].value);
+            var theClassLen = theClass.length;
+            //alert(theClass.length);
+            for (var i = 0; i < theClassLen; i++) {
+                //console.log(theClass.item(i).value);
+                //console.log(theClass[i].value);
             }
-            //console.log(theInputs.namedItem("txtName").value);  //abc
-            console.log(theInputs.namedItem("hobby").value);  //reading 傳回第一個hobby的values
+            console.log(theInputs.namedItem("txtName").value);  //abc
+            console.log(theInputs.namedItem("hobby").value);  //reading 傳回第一個
             console.log(theInputs["hobby"].value);
-            
+           */
         }
     </script>
 </head>
