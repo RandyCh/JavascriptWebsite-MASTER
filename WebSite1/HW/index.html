@@ -7,98 +7,190 @@
 <!--<![endif]-->
 
 <head>
-<meta charset="utf-8">
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lexis - Minimal, Corporate Bootstrap template</title>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/flexslider.css">
-<link rel="stylesheet" href="css/jquery.fancybox.css">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/responsive.css">
-<link rel="stylesheet" href="css/font-icon.css">
-<link rel="stylesheet" href="css/animate.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Randy Homeworks</title>
+    <style>
+        .frame {
+            width: 300px;
+            height: 300px;
+        }
+
+        .but {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/font-icon.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <script src="https://use.fontawesome.com/e8bbdd1d52.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 
 <body>
-<!-- header section -->
-<section class="banner" role="banner">
-  <header id="header">
-    <div class="header-content clearfix"> <a class="logo" href="index.html">LEXIS</a>
-      <nav class="navigation" role="navigation">
-        <ul class="primary-nav">
-          <li><a href="#intro">About</a></li>
-          <li><a href="81multipulation.html">81multipulation</a></li>
-          <li><a href="Register.html">Register</a></li>
-          <li><a href="StarRating3.html">Star_Rating</a></li>
-          <li><a href="Calendar.html">Calender</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <a href="#" class="nav-toggle">Menu<span></span></a> </div>
-  </header>
-  <!-- banner text -->
-  <div class="container">
-    <div class="col-md-10 col-md-offset-1">
-      <div class="banner-text text-center">
-        <h1>Bootstrap One Page Multi Purpose Template</h1>
-        <p>Lorem ipsum dolor sit ametcursus magna vel scelerisque Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna vel scelerisque nisl consectetur et.nisl consectetur et.</p>
-        <a href="#" class="btn btn-large">Find out more</a> </div>
-      <!-- banner text --> 
-    </div>
-  </div>
-</section>
-<!-- header section --> 
+    <!-- header section -->
+    <section class="banner" role="banner">
+        <header id="header">
+            <div class="header-content clearfix">
+                <a class="logo" href="index.html">LEXIS</a>
+                <nav class="navigation" role="navigation">
+                    <ul class="primary-nav">
+                        <li><a href="#intro">About</a></li>
+                        <li><a href="81multipulation.html">81multipulation</a></li>
+                        <li><a href="Register.html">Register</a></li>
+                        <li><a href="StarRating3.html">Star_Rating</a></li>
+                        <li><a href="Calendar.html">Calender</a></li>
+                        <li><a href="ShowPictures.html">PictureShow</a></li>
+                    </ul>
+                </nav>
+                <a href="#" class="nav-toggle">Menu<span></span></a>
+            </div>
+        </header>
+        <!-- banner text -->
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="banner-text text-center">
+                    <h1>Bootstrap One Page Multi Purpose Template</h1>
+                    <p>Lorem ipsum dolor sit ametcursus magna vel scelerisque Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna vel scelerisque nisl consectetur et.nisl consectetur et.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- header section -->
+    <section class="Catspicture">
+        <form>
+            <fieldset style="width:300px">
+                <legend style="text-shadow:-1px -1px white, 1px 1px #333">Ads Carousel</legend>
+                <div>
+                    <img id="idImg" src="images/cat1.jpg" class="frame" />
+                </div>
+                <div id="numbpicarea" style="margin-left:35px;">
+                </div>
+                <div style="line-height:5px"></div>
+                <br>
+                <div style="width:300px; margin-left:75px">
+                    <div style="width:220px">
+                        <a class="btn btn-default btn-sm" href="#" id="firstpic"><i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+                        <a class="btn btn-default btn-sm" href="#" id="play"><i class="fa fa-play" aria-hidden="true"></i></a>
+                        <a class="btn btn-default btn-sm" href="#" id="pause"><i class="fa fa-pause" aria-hidden="true"></i></a>
+                        <a class="btn btn-default btn-sm" href="#" id="lastpic"><i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+                    </div>
+                </div>
 
-<!-- Footer section -->
-<footer class="footer">
-  <div class="footer-top section">
-    <div class="container">
-      <div class="row">
-        <div class="footer-col col-md-6">
-          <h5>Our Office Location</h5>
-          <p>Collins Street West Victoria 8007 Australia.<br>
-            1800 1234 56789 / 98532100987<br>
-            support@lexis.com</p>
-          <p>Copyright © 2015 Lexis Inc. All Rights Reserved. Made with <i class="fa fa-heart pulse"></i> by <a href="http://www.designstub.com/">Designstub</a></p>
+            </fieldset>
+        </form>
+    </section>
+    <!-- Footer section -->
+    <footer class="footer">
+        <div class="footer-top section">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-6">
+                        <h5>Our Office Location</h5>
+                        <p>
+                            Collins Street West Victoria 8007 Australia.<br>
+                            1800 1234 56789 / 98532100987<br>
+                            support@lexis.com
+                        </p>
+                        <p>Copyright © 2015 Lexis Inc. All Rights Reserved. Made with <i class="fa fa-heart pulse"></i> by <a href="http://www.designstub.com/">Designstub</a></p>
+                    </div>
+                    <div class="footer-col col-md-3">
+                        <h5>Services We Offer</h5>
+                        <p>
+                            <ul>
+                                <li><a href="#">Digital Strategy</a></li>
+                                <li><a href="#">Websites</a></li>
+                                <li><a href="#">Videography</a></li>
+                                <li><a href="#">Social Media</a></li>
+                                <li><a href="#">User Experience</a></li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="footer-col col-md-3">
+                        <h5>Share with Love</h5>
+                        <ul class="footer-share">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer-col col-md-3">
-          <h5>Services We Offer</h5>
-          <p>
-          <ul>
-            <li><a href="#">Digital Strategy</a></li>
-            <li><a href="#">Websites</a></li>
-            <li><a href="#">Videography</a></li>
-            <li><a href="#">Social Media</a></li>
-            <li><a href="#">User Experience</a></li>
-          </ul>
-          </p>
-        </div>
-        <div class="footer-col col-md-3">
-          <h5>Share with Love</h5>
-          <ul class="footer-share">
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- footer top --> 
-  
-</footer>
-<!-- Footer section --> 
-<!-- JS FILES --> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/jquery.flexslider-min.js"></script> 
-<script src="js/jquery.fancybox.pack.js"></script> 
-<script src="js/retina.min.js"></script> 
-<script src="js/modernizr.js"></script> 
-<script src="js/main.js"></script> 
-<script type="text/javascript" src="js/jquery.contact.js"></script>
+        <!-- footer top -->
+
+    </footer>
+    <!-- Footer section -->
+    <!-- JS FILES -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/retina.min.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript" src="js/jquery.contact.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            for (var i = 1; i <= 7; i++) {
+                var x = document.createElement("img");
+                x.setAttribute("src", "images/" + i + "b.png");
+                x.setAttribute("class", "point");
+                x.setAttribute("id", "pic" + i);
+                document.getElementById("numbpicarea").appendChild(x)
+            }
+            var imgs = document.querySelectorAll("img.point");//標籤.class
+            var imgsLen = imgs.length;
+            for (var i = 0; i < imgsLen; i++) {
+                imgs[i].addEventListener("mouseover", mouseOver);
+                //imgs[i].addEventListener("mouseout", mouseOut);
+                //imgs[i].addEventListener("click", Click);
+            }
+            document.getElementById("firstpic").addEventListener("click", showfirstpic);
+            document.getElementById("lastpic").addEventListener("click", showlastpic);
+            document.getElementById("play").addEventListener("click", starttimer);
+            document.getElementById("pause").addEventListener("click", stoptimer);
+        });
+        var intervalID = window.setInterval(playpic, 4000);
+
+        function mouseOver(event) {
+            var picnumb = ((event.target.id).charAt(3));
+            document.getElementById("idImg").setAttribute("src", "images/cat" + picnumb + ".jpg");
+            document.getElementById("idImg").setAttribute("class", "frame");
+        }
+        function playpic() {
+            var fullName = document.getElementById("idImg").src
+            var fullNameArr = fullName.split("/");
+            var numNext = parseInt(fullNameArr[5].charAt(3)) + 1;
+            if (numNext == 8) {
+                numNext = 1;
+                document.getElementById("idImg").src = "images/cat" + numNext + ".jpg";
+            }
+            else {
+                document.getElementById("idImg").src = "images/cat" + numNext + ".jpg";
+            }
+        }
+        function starttimer() {
+            intervalID = window.setInterval(playpic, 4000);
+        }
+        function stoptimer() {
+            window.clearInterval(intervalID);
+        }
+        function showfirstpic() {
+            numNext = 1;
+            document.getElementById("idImg").src = "images/cat" + numNext + ".jpg";
+        }
+        function showlastpic() {
+            numNext = 7;
+            document.getElementById("idImg").src = "images/cat" + numNext + ".jpg";
+        }
+ </script>
 </body>
 </html>

@@ -12,31 +12,55 @@
             height: 50px;
         }
     </style>
+    <script src="https://use.fontawesome.com/e8bbdd1d52.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-    <form>
-        <fieldset style="width:300px">
+     <div class="allpage">
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+                <a class="navbar-brand" href="#">Top navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active"><a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Link</a></li>
+                        <li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li>
+                    </ul>
+                    <form class="form-inline mt-2 mt-md-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </header>
+<article>
+    <div style="width:100%;">
+      <form>
+        <fieldset style="width:300px;margin:auto;">
             <legend style="text-shadow:-1px -1px white, 1px 1px #333">Ads Carousel</legend>
-            <div style="border:1px solid black;">
+            <div>
                 <img id="idImg" src="images/cat1.jpg" class="frame" />
             </div>
-
-                <div style="margin:auto; border:1px solid black;">
-                    <snap id="numbpicarea" style="margin:auto; border:1px solid black;">
-                    </snap>
-                </div>
-
-                <div style="width:300px">
-                    <div style="margin:auto; border:1px solid black; width:220px">
-                        <img class="but" src="images/first.png" id="firstpic" />
-                        <img class="but" src="images/git.png" id="play" />
-                        <img class="but" src="images/pause.png" id="pause" />
-                        <img class="but" src="images/last.png" id="lastpic" />
+                    <div id="numbpicarea" style="margin-left:35px;">
+                    </div>
+            <div style="line-height:5px"></div>
+            <br>
+                <div style="width:300px; margin-left:75px">
+                    <div style="width:220px">
+                        <a class="btn btn-default btn-sm" href="#" id="firstpic"><i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+                         <a class="btn btn-default btn-sm" href="#" id="play"><i class="fa fa-play" aria-hidden="true"></i></a>
+                        <a class="btn btn-default btn-sm" href="#" id="pause"><i class="fa fa-pause" aria-hidden="true"></i></a>
+                        <a class="btn btn-default btn-sm" href="#" id="lastpic"><i class="fa fa-fast-forward" aria-hidden="true"></i></a>
                     </div>
                 </div>
-
         </fieldset>
     </form>
+        </div>
+  </article>
+</div>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         for (var i = 1; i <= 7; i++) {
@@ -50,14 +74,17 @@
 
         var imgs = document.querySelectorAll("img.point");//標籤.class
         var imgsLen = imgs.length;
-        alert(imgsLen);
         for (var i = 0; i < imgsLen; i++) {
             imgs[i].addEventListener("mouseover", mouseOver);
             //imgs[i].addEventListener("mouseout", mouseOut);
             //imgs[i].addEventListener("click", Click);
         }
+        document.getElementById("firstpic").addEventListener("click", showfirstpic);
+        document.getElementById("lastpic").addEventListener("click", showlastpic);
+        document.getElementById("play").addEventListener("click", starttimer);
+        document.getElementById("pause").addEventListener("click", stoptimer);
     });
-    window.setInterval(playpic, 3000);
+    var intervalID=window.setInterval(playpic, 4000);
 
     function mouseOver(event) {
         var picnumb = ((event.target.id).charAt(3));
@@ -76,6 +103,23 @@
             document.getElementById("idImg").src="images/cat"+ numNext +".jpg";
         }
     }
+    function starttimer() {
+       intervalID = window.setInterval(playpic, 4000);
+    }
+    function stoptimer() {
+        window.clearInterval(intervalID);
+    }
+    function showfirstpic() {
+        numNext = 1;
+        document.getElementById("idImg").src = "images/cat" + numNext + ".jpg";
+    }
+    function showlastpic() {
+        numNext = 7;
+        document.getElementById("idImg").src = "images/cat" + numNext + ".jpg";
+    }
 </script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

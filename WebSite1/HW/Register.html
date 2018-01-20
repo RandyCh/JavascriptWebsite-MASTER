@@ -37,178 +37,30 @@
             color: red;
         }
     </style>
-    <script>
-        function checkName() {
-            var UserName = document.getElementById("account1").value;
-            var UserNamelen = UserName.length;
-            if (UserName =="") {
-                showAlert("usernameinput", "稱不可為空白!!")
-                return false;
-            }
-            else if (UserNamelen >= 2) {
-                for (var i = 0; i < UserNamelen; i++) {
-                    if (UserName.charCodeAt(i) < 0x4E00 || UserName.charCodeAt(i) > 0x9FA5) {
-                        showAlert("usernameinput", "輸入非中文，請重新輸入");
-                        break;
-                    }
-                    else {
-                        showAlert("usernameinput", "密碼正確");
-                    }
-                }
-            }
-        }
-        //function chkPassword() {
-        //    //取得元素值
-        //    var thePwd = document.getElementById("idPwd").value;
-        //    var thePwdlen = thePwd.length;
-        //    var flag1 = false, flag2 = false, flag3 = false;
-        //    //判斷元素值是否為空白，密碼長度是否大於6
-        //    if (thePwd == "") {
-        //        document.getElementById("passwordinput").style.visibility = "visible";
-        //        document.getElementById("passwordinput").innerText = "you must enter!";
-        //        return false;
-        //    }
-        //    //如果長度是否大於6，判斷是否包含字母、數字、特殊符號
-        //    else if (thePwdlen >= 6)
-        //    {
-        //        //alert(">=6");
-        //        for (var i = 0; i < thePwdlen; i++)
-        //        {
-        //            var pwrChr = thePwd.charAt(i).toUpperCase();
-        //            if (pwrChr >= "A" && pwrChr <= "Z")
-        //            {
-        //                flag1 = true;
-        //            }
-        //            else if (pwrChr >= "0" && pwrChr <= "9")
-        //            {
-        //                flag2 = true;
-        //            }
-        //            else if (regclick(s))
-        //            if (flag1 && flag2)
-        //            {
-        //                break;
-        //            }
-        //        }
-        //        if (flag1 && flag2)
-        //        {
-        //            function regclick(s)
-        //            alert("correct");
-        //        }
-        //        else
-        //        {
-        //            alert("incorrect");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        alert("the password length must greater than 6");
-        //    }
-        //}
-        //function regclick(s) {
-        //    var reg = /[@#\$%\^&\*]+/g;
-        //    if (reg.test(s).value)
-        //    {
-        //        alert("s中有特殊字符！");
-        //        return true;
-        //    }
-        //    return false;
-        //}
-        function testPass(str) {
-            var rC =
-                {
-                    //lW: '[a-z]',
-                    uW: '[A-Z]',
-                    nW: '[0-9]',
-                    sW: '[\\u0020-\\u002F\\u003A-\\u0040\\u005B-\\u0060\\u007B-\\u007E]'
-                };
-            function Reg(str, rStr) {
-                var reg = new RegExp(rStr);
-                if (reg.test(str)) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            }
-            if (str.length < 6) {
-                showAlert("Passwordinput", "密碼長度太短");
-                return false;
-            }
-            else {
-                var tR =
-                    {
-                        // l: Reg(str, rC.lW),
-                        u: Reg(str, rC.uW),
-                        n: Reg(str, rC.nW),
-                        s: Reg(str, rC.sW)
-                    };
-                if ((tR.s && tR.u && tR.n)) {
-                    showAlert("Passwordinput", "密码符合要求");
-                    return true;
-                }
-                else {
-                    showAlert("Passwordinput", '密码须有"英文"、"数字"、"特殊符号"');
-                    return false;
-                }
-            }
-        }
-        //檢查日期格式是否正確
-        function ValidateDate(dtValue) {
-            var dtRegex = new RegExp(/^[0-9]{4}[/](0[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])$/);
-            var dtValueinn = dtValue;
-            if (dtRegex.test(dtValueinn)) {
-                if (isExistDate(dtValueinn)) {
-                    showAlert("birdateinput", "格式正確 有這天");
-                    return true;
-                }
-                else {
-                    showAlert("birdateinput", "格式正確 但沒這天");
-                    return false;
-                }
-
-            }
-            else {
-                showAlert("birdateinput", "格式錯誤");
-                return false;
-            }
-        }
-        //檢查是否閏年
-        function isExistDate(dateStr) { // yyyy/mm/dd
-            var dateObj = dateStr.split('/');
-            //列出12個月，每月最大日期限制
-            var limitInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-            var theYear = parseInt(dateObj[0]);
-            var theMonth = parseInt(dateObj[1]);
-            var theDay = parseInt(dateObj[2]);
-            var isLeap = new Date(theYear, 1, 29).getDate() === 29; // 是否為閏年?
-
-            if (isLeap) { // 若為閏年，將二月的最大日期限制改為 29
-                limitInMonth[1] = 29;
-            }
-
-            // 比對該日是否超過每個月份最大日期限制
-            return theDay <= limitInMonth[theMonth - 1]
-        }
-        function showAlert(id, msg) {
-            document.getElementById(id).style.color = "red";
-            document.getElementById(id).innerHTML ="<img src=images/error.png>"+msg;
-        }
-    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
 
 </head>
 <body>
-    <div id="tabs">
-        <ul>
-            <li><a href="http://www.free-css.com/"><span>CSS Templates</span></a></li>
-            <li><a href="http://www.free-css.com/"><span>CSS Layouts</span></a></li>
-            <li><a href="http://www.free-css.com/"><span>CSS Books</span></a></li>
-            <li><a href="http://www.free-css.com/"><span>CSS Menus</span></a></li>
-            <li><a href="http://www.free-css.com/"><span>CSS Tutorials</span></a></li>
-            <li><a href="http://www.free-css.com/"><span>CSS Reference</span></a></li>
-            <li><a rel="nofollow" target="_blank" href="http://www.exploding-boy.com/" title="explodingboy"><span>explodingboy</span></a></li>
-        </ul>
-    </div>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+            <a class="navbar-brand" href="#">Top navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Link</a></li>
+                    <li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li>
+                </ul>
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
     <section>
         <div style="width:100%;">
             <form action="#" method="get" enctype="multipart/form-data">
@@ -269,6 +121,167 @@
 
             </form>
         </div>
-    </section>
+    </section><script>
+    function checkName() {
+        var UserName = document.getElementById("account1").value;
+        var UserNamelen = UserName.length;
+        if (UserName == "") {
+            showAlert("usernameinput", "稱不可為空白!!")
+            return false;
+        }
+        else if (UserNamelen >= 2) {
+            for (var i = 0; i < UserNamelen; i++) {
+                if (UserName.charCodeAt(i) < 0x4E00 || UserName.charCodeAt(i) > 0x9FA5) {
+                    showAlert("usernameinput", "輸入非中文，請重新輸入");
+                    break;
+                }
+                else {
+                    showAlert("usernameinput", "密碼正確");
+                }
+            }
+        }
+    }
+    //function chkPassword() {
+    //    //取得元素值
+    //    var thePwd = document.getElementById("idPwd").value;
+    //    var thePwdlen = thePwd.length;
+    //    var flag1 = false, flag2 = false, flag3 = false;
+    //    //判斷元素值是否為空白，密碼長度是否大於6
+    //    if (thePwd == "") {
+    //        document.getElementById("passwordinput").style.visibility = "visible";
+    //        document.getElementById("passwordinput").innerText = "you must enter!";
+    //        return false;
+    //    }
+    //    //如果長度是否大於6，判斷是否包含字母、數字、特殊符號
+    //    else if (thePwdlen >= 6)
+    //    {
+    //        //alert(">=6");
+    //        for (var i = 0; i < thePwdlen; i++)
+    //        {
+    //            var pwrChr = thePwd.charAt(i).toUpperCase();
+    //            if (pwrChr >= "A" && pwrChr <= "Z")
+    //            {
+    //                flag1 = true;
+    //            }
+    //            else if (pwrChr >= "0" && pwrChr <= "9")
+    //            {
+    //                flag2 = true;
+    //            }
+    //            else if (regclick(s))
+    //            if (flag1 && flag2)
+    //            {
+    //                break;
+    //            }
+    //        }
+    //        if (flag1 && flag2)
+    //        {
+    //            function regclick(s)
+    //            alert("correct");
+    //        }
+    //        else
+    //        {
+    //            alert("incorrect");
+    //        }
+    //    }
+    //    else
+    //    {
+    //        alert("the password length must greater than 6");
+    //    }
+    //}
+    //function regclick(s) {
+    //    var reg = /[@#\$%\^&\*]+/g;
+    //    if (reg.test(s).value)
+    //    {
+    //        alert("s中有特殊字符！");
+    //        return true;
+    //    }
+    //    return false;
+    //}
+    function testPass(str) {
+        var rC =
+            {
+                //lW: '[a-z]',
+                uW: '[A-Z]',
+                nW: '[0-9]',
+                sW: '[\\u0020-\\u002F\\u003A-\\u0040\\u005B-\\u0060\\u007B-\\u007E]'
+            };
+        function Reg(str, rStr) {
+            var reg = new RegExp(rStr);
+            if (reg.test(str)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        if (str.length < 6) {
+            showAlert("Passwordinput", "密碼長度太短");
+            return false;
+        }
+        else {
+            var tR =
+                {
+                    // l: Reg(str, rC.lW),
+                    u: Reg(str, rC.uW),
+                    n: Reg(str, rC.nW),
+                    s: Reg(str, rC.sW)
+                };
+            if ((tR.s && tR.u && tR.n)) {
+                showAlert("Passwordinput", "密码符合要求");
+                return true;
+            }
+            else {
+                showAlert("Passwordinput", '密码须有"英文"、"数字"、"特殊符号"');
+                return false;
+            }
+        }
+    }
+    //檢查日期格式是否正確
+    function ValidateDate(dtValue) {
+        var dtRegex = new RegExp(/^[0-9]{4}[/](0[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])$/);
+        var dtValueinn = dtValue;
+        if (dtRegex.test(dtValueinn)) {
+            if (isExistDate(dtValueinn)) {
+                showAlert("birdateinput", "格式正確 有這天");
+                return true;
+            }
+            else {
+                showAlert("birdateinput", "格式正確 但沒這天");
+                return false;
+            }
+
+        }
+        else {
+            showAlert("birdateinput", "格式錯誤");
+            return false;
+        }
+    }
+    //檢查是否閏年
+    function isExistDate(dateStr) { // yyyy/mm/dd
+        var dateObj = dateStr.split('/');
+        //列出12個月，每月最大日期限制
+        var limitInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        var theYear = parseInt(dateObj[0]);
+        var theMonth = parseInt(dateObj[1]);
+        var theDay = parseInt(dateObj[2]);
+        var isLeap = new Date(theYear, 1, 29).getDate() === 29; // 是否為閏年?
+
+        if (isLeap) { // 若為閏年，將二月的最大日期限制改為 29
+            limitInMonth[1] = 29;
+        }
+
+        // 比對該日是否超過每個月份最大日期限制
+        return theDay <= limitInMonth[theMonth - 1]
+    }
+    function showAlert(id, msg) {
+        document.getElementById(id).style.color = "red";
+        document.getElementById(id).innerHTML = "<img src=images/error.png>" + msg;
+    }
+</script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 </html>
