@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        #table2 {
+            border: 1px solid black;
+            margin: auto;
+        }
+        /*.class {
+        border: 1px solid black;
+        border-collapse: collapse;
+        background-color: darkturquoise;
+        }*/
+        #data2 {
+            border: 1px solid black;
+            /*border-collapse: collapse;
+        background-color: lemonchiffon;*/
+        }
+
+        #tbody2 {
+            background-color: #0080FF;
+            text-align: center;
+        }
+
+        tbody tr:nth-child(2n) {
+            background-color: #46A3FF;
+        }
+
+        tbody tr:nth-child(2n+1) {
+            background-color: #97CBFF;
+        }
+
+        tbody tr:hover {
+            background-color: #ECF5FF;
+        }
+
+        .auto-style1 {
+            height: 79px;
+        }
+    </style>
+</head>
+<body>
+    <div class="allpage">
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+                <a class="navbar-brand" href="#">Top navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active"><a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Link</a></li>
+                        <li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li>
+                    </ul>
+                    <form class="form-inline mt-2 mt-md-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </header>
+        <script>
+            document.write("<table id='table2'>");
+            document.write("<tbody id='tobdy2'>");
+            for (j = 1; j < 10; j++) {
+                document.write("<tr class='row2'>");
+                for (i = 2; i < 10; i++) {
+                    document.write("<td id='data2'>");
+                    document.write(i + "*" + j + "=" + (i * j) + "<br>");
+                }
+                document.write("</td>");
+                document.write("</tr>");
+            }
+            document.write("</tbody>");
+            document.write("</table>");
+        </script>
+        </div>
+</body>
+</html>

@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
+    <style>
+        fieldset {
+            width: 800px;
+            border: 1px solid #acd6ff;
+            border-radius: 20px;
+            margin: 15px;
+        }
+
+        .st1 {
+            width: 800px;
+            /*border-bottom: 1px solid #F0F0F0;*/
+            /*padding-bottom: 10px;*/
+        }
+
+        .sub {
+            width: 450px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .t1 {
+            width: 100px;
+            float: left;
+            text-align: right;
+            /*border:1px solid red;*/
+            /* margin-right:3px;*/
+            padding-right: 3px;
+        }
+
+        em {
+            color: red;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+            <a class="navbar-brand" href="#">Top navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Link</a></li>
+                    <li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li>
+                </ul>
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div style="width:100%;">
+            <form action="#" method="get" enctype="multipart/form-data">
+                <fieldset style="border:2px solid green; margin:auto;">
+                    <legend>個人資料一<em>(必填)</em></legend>
+                    <div class="st1">
+                        <label for="account1" class="t1">姓名:</label>
+                        <input type="text" name="account" id="account1" size="10" placeholder="guest" autocomplete="off" onblur=" checkName()" /><span id="usernameinput" style="color:red;"></span>
+                    </div>
+                    <div>
+                        <label style="margin-right:0px;color:#808080; margin-left:100px; padding:0px;">1.不可空白 2.至少兩個字以上 3.必須全部為中文字</label>
+                    </div>
+                    <div class="st1">
+                        <label for="pwd1" class="t1">密碼:</label>
+                        <input type="password" id="idPwd" name="pwd" maxlength="16" onblur=" testPass(document.getElementById('idPwd').value.toUpperCase())" required /><span id="Passwordinput" style="color:red;"></span>
+                    </div>
+                    <div>
+                        <label style="margin-right:0px;color:#808080; margin-left:100px;">1.不可空白 2.至少6個字以上 3.必須包含"英文"、"数字"、"特殊符号"</label>
+                    </div>
+                    <div class="st1">
+                        <label for="bridate" class="t1">生日:</label>
+                        <input type="text" id="bridate" name="bridate" placeholder="ex:2000/02/29" onblur="ValidateDate(document.getElementById('bridate').value)" /><span id="birdateinput" style="color:red;"></span>
+                    </div>
+                    <div>
+                        <label style="margin-right:0px; color:#808080; margin-left:100px;">格式西元年/月/日 yyyy/MM/dd</label>
+                    </div>
+                    <div class="st1">
+                        <label class="t1">性別:</label>
+                        <input type="radio" name="gender" value="male" id="m1" /><label for="m1">男</label>
+                        <input type="radio" name="gender" value="female" id="f1" /><label for="f1">女</label>
+                    </div>
+                    <div>
+                        <label style="margin-right:0px; color:#808080; margin-left:100px;"></label>
+                    </div>
+                    <div class="st1">
+                        <label class="t1">生日:</label><input type="date" name="birth" />
+                    </div>
+                    <div>
+                        <label style="margin-right:0px; color:#808080; margin-left:100px;"></label>
+                    </div>
+                    <div class="st1">
+                        <label class="t1">E-mail:</label><input type="email" name="mail1" multiple style="width:300px" />
+                    </div>
+                    <div>
+                        <label style="margin-right:0px; color:#808080; margin-left:100px;"></label>
+                    </div>
+                    <div class="st1">
+                        <label class="t1">身分證字號:</label><input type="text" name="idcode" maxlength="10" pattern="[a-zA-Z]{1}[1-2]{1}\d{8}" />
+                    </div>
+                    <div>
+                        <label style="margin-right:0px; color:#808080; margin-left:100px;"></label>
+                    </div>
+                    <div class="sub">
+                        <input type="submit" value="送出" />
+                        <input type="reset" value="清除" />
+                    </div>
+                </fieldset>
+
+            </form>
+        </div>
+    </section><script>
+    function checkName() {
+        var UserName = document.getElementById("account1").value;
+        var UserNamelen = UserName.length;
+        if (UserName == "") {
+            showAlert("usernameinput", "稱不可為空白!!")
+            return false;
+        }
+        else if (UserNamelen >= 2) {
+            for (var i = 0; i < UserNamelen; i++) {
+                if (UserName.charCodeAt(i) < 0x4E00 || UserName.charCodeAt(i) > 0x9FA5) {
+                    showAlert("usernameinput", "輸入非中文，請重新輸入");
+                    break;}
+                else { showAlert("usernameinput", "密碼正確");}
+            }
+        }
+    }
+    //function chkPassword() {
+    //    //取得元素值
+    //    var thePwd = document.getElementById("idPwd").value;
+    //    var thePwdlen = thePwd.length;
+    //    var flag1 = false, flag2 = false, flag3 = false;
+    //    //判斷元素值是否為空白，密碼長度是否大於6
+    //    if (thePwd == "") {
+    //        document.getElementById("passwordinput").style.visibility = "visible";
+    //        document.getElementById("passwordinput").innerText = "you must enter!";
+    //        return false;
+    //    }
+    //    //如果長度是否大於6，判斷是否包含字母、數字、特殊符號
+    //    else if (thePwdlen >= 6)
+    //    {
+    //        //alert(">=6");
+    //        for (var i = 0; i < thePwdlen; i++)
+    //        {
+    //            var pwrChr = thePwd.charAt(i).toUpperCase();
+    //            if (pwrChr >= "A" && pwrChr <= "Z")
+    //            {
+    //                flag1 = true;
+    //            }
+    //            else if (pwrChr >= "0" && pwrChr <= "9")
+    //            {
+    //                flag2 = true;
+    //            }
+    //            else if (regclick(s))
+    //            if (flag1 && flag2)
+    //            {
+    //                break;
+    //            }
+    //        }
+    //        if (flag1 && flag2)
+    //        {
+    //            function regclick(s)
+    //            alert("correct");
+    //        }
+    //        else
+    //        {
+    //            alert("incorrect");
+    //        }
+    //    }
+    //    else
+    //    {
+    //        alert("the password length must greater than 6");
+    //    }
+    //}
+    //function regclick(s) {
+    //    var reg = /[@#\$%\^&\*]+/g;
+    //    if (reg.test(s).value)
+    //    {
+    //        alert("s中有特殊字符！");
+    //        return true;
+    //    }
+    //    return false;
+    //}
+    function testPass(str) {
+        var rC =
+            {
+                //lW: '[a-z]',
+                uW: '[A-Z]',
+                nW: '[0-9]',
+                sW: '[\\u0020-\\u002F\\u003A-\\u0040\\u005B-\\u0060\\u007B-\\u007E]'
+            };
+        function Reg(str, rStr) {
+            var reg = new RegExp(rStr);
+            if (reg.test(str)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        if (str.length < 6) {
+            showAlert("Passwordinput", "密碼長度太短");
+            return false;
+        }
+        else {
+            var tR =
+                {
+                    // l: Reg(str, rC.lW),
+                    u: Reg(str, rC.uW),
+                    n: Reg(str, rC.nW),
+                    s: Reg(str, rC.sW)
+                };
+            if ((tR.s && tR.u && tR.n)) {
+                showAlert("Passwordinput", "密码符合要求");
+                return true;
+            }
+            else {
+                showAlert("Passwordinput", '密码须有"英文"、"数字"、"特殊符号"');
+                return false;
+            }
+        }
+    }
+    //檢查日期格式是否正確
+    function ValidateDate(dtValue) {
+        var dtRegex = new RegExp(/^[0-9]{4}[/](0[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])$/);
+        var dtValueinn = dtValue;
+        if (dtRegex.test(dtValueinn)) {
+            if (isExistDate(dtValueinn)) {
+                showAlert("birdateinput", "格式正確 有這天");
+                return true;
+            }
+            else {
+                showAlert("birdateinput", "格式正確 但沒這天");
+                return false;
+            }
+
+        }
+        else {
+            showAlert("birdateinput", "格式錯誤");
+            return false;
+        }
+    }
+    //檢查是否閏年
+    function isExistDate(dateStr) { // yyyy/mm/dd
+        var dateObj = dateStr.split('/');
+        //列出12個月，每月最大日期限制
+        var limitInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        var theYear = parseInt(dateObj[0]);
+        var theMonth = parseInt(dateObj[1]);
+        var theDay = parseInt(dateObj[2]);
+        var isLeap = new Date(theYear, 1, 29).getDate() === 29; // 是否為閏年?
+
+        if (isLeap) { // 若為閏年，將二月的最大日期限制改為 29
+            limitInMonth[1] = 29;
+        }
+
+        // 比對該日是否超過每個月份最大日期限制
+        return theDay <= limitInMonth[theMonth - 1]
+    }
+    function showAlert(id, msg) {
+        document.getElementById(id).style.color = "red";
+        document.getElementById(id).innerHTML = "<img src=images/error.png>" + msg;
+    }
+</script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
