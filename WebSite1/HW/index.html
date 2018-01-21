@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <script src="https://use.fontawesome.com/e8bbdd1d52.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         #table2 {
@@ -20,26 +21,27 @@
         background-color: lemonchiffon;*/
         }
 
-    #tbody2 {
-    background-color: #0080FF;
-    text-align: center;
-    }
+        #tbody2 {
+            background-color: #0080FF;
+            text-align: center;
+        }
 
-    tbody tr:nth-child(2n) {
-    background-color: #46A3FF;
-    }
+        tbody tr:nth-child(2n) {
+            background-color: #46A3FF;
+        }
 
-    tbody tr:nth-child(2n+1) {
-    background-color: #97CBFF;
-    }
+        tbody tr:nth-child(2n+1) {
+            background-color: #97CBFF;
+        }
 
-    tbody tr:hover {
-    background-color: #ECF5FF;
-    }
+        tbody tr:hover {
+            background-color: #ECF5FF;
+        }
 
-    .auto-style1 {
-    height: 79px;
-    }
+        .auto-style1 {
+            height: 79px;
+        }
+
         fieldset {
             width: 800px;
             border: 1px solid #acd6ff;
@@ -71,6 +73,16 @@
         em {
             color: red;
         }
+
+        .frame {
+            width: 300px;
+            height: 300px;
+        }
+
+        .but {
+            width: 50px;
+            height: 50px;
+        }
     </style>
 </head>
 
@@ -85,8 +97,11 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active"><a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
-                        <li class="nav-item"> <a class="nav-link" href="#Register">Register</a></li>
-                        <li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="#Register">81 multipulation</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="#Register">Register</a></li>
+                        <li class="nav-item active"><a class="nav-link disabled" href="#">StarRating</a></li>
+                        <li class="nav-item active"><a class="nav-link disabled" href="#">ShowPictures</a></li>
+                        <li class="nav-item active"><a class="nav-link disabled" href="#">Calendar</a></li>
                     </ul>
                     <form class="form-inline mt-2 mt-md-0">
                         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -96,170 +111,384 @@
             </nav>
         </header>
         <div class="container-fluid" style="background-color:aquamarine">
-            <script>
-                document.write("<table id='table2'>");
-                document.write("<tbody id='tobdy2'>");
-                for (j = 1; j < 10; j++) {
-                    document.write("<tr class='row2'>");
-                    for (i = 2; i < 10; i++) {
-                        document.write("<td id='data2'>");
-                        document.write(i + "*" + j + "=" + (i * j) + "<br>");
-                    }
-                    document.write("</td>");
-                    document.write("</tr>");
+            <div class="row">
+                <div class="col-6" style="border:1px solid black">
+                    <script>
+                        document.write("<table id='table2'>");
+                        document.write("<tbody id='tobdy2'>");
+                        for (j = 1; j < 10; j++) {
+                            document.write("<tr class='row2'>");
+                            for (i = 2; i < 10; i++) {
+                                document.write("<td id='data2'>");
+                                document.write(i + "*" + j + "=" + (i * j) + "<br>");
+                            }
+                            document.write("</td>");
+                            document.write("</tr>");
+                        }
+                        document.write("</tbody>");
+                        document.write("</table>");
+                    </script>
+                    <div class="row" style="border:1px solid black">
+                        <div style="margin:auto;">
+                            <form id="calform">
+                                <select id="yearlist"></select>年<select id="monthlist"></select>月<select id="daylist"></select>日
+                            </form>
+                            <span id="showdate"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div style="margin:auto;width:700px;">
+                            <div id="rating">
+                                <img src="images/star.gif" class="star" id="1" />
+                                <img src="images/star.gif" class="star" id="2" />
+                                <img src="images/star.gif" class="star" id="3" />
+                                <img src="images/star.gif" class="star" id="4" />
+                                <img src="images/star.gif" class="star" id="5" />
+                            </div>
+                            <div id="rate"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6" style="border:1px solid black">
+                    <div style="width:100%;">
+                        <form>
+                            <fieldset style="width:300px;margin:auto;">
+                                <legend style="text-shadow:-1px -1px white, 1px 1px #333">Ads Carousel</legend>
+                                <div>
+                                    <img id="idImg" src="images/cat1.jpg" class="frame" />
+                                </div>
+                                <div id="numbpicarea" style="margin-left:35px;">
+                                </div>
+                                <div style="line-height:5px"></div>
+                                <br>
+                                <div style="width:300px; margin-left:75px">
+                                    <div style="width:220px">
+                                        <a class="btn btn-default btn-sm" href="#" id="firstpic"><i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+                                        <a class="btn btn-default btn-sm" href="#" id="play"><i class="fa fa-play" aria-hidden="true"></i></a>
+                                        <a class="btn btn-default btn-sm" href="#" id="pause"><i class="fa fa-pause" aria-hidden="true"></i></a>
+                                        <a class="btn btn-default btn-sm" href="#" id="lastpic"><i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <a name=”Register”></a>
+            <div class="container-fluid" style="background-color:#63aaf1">
+                <form action="#" method="get" enctype="multipart/form-data">
+                    <fieldset style="border:2px solid green; margin:auto;">
+                        <legend>個人資料</legend>
+                        <div class="st1">
+                            <label for="account1" class="t1">姓名:</label>
+                            <input type="text" name="account" id="account1" size="10" placeholder="guest" autocomplete="off" onblur=" checkName()" /><span id="usernameinput" style="color:red;"></span>
+                        </div>
+                        <div>
+                            <label style="margin-right:0px;color:#808080; margin-left:100px; padding:0px;">1.不可空白 2.至少兩個字以上 3.必須全部為中文字</label>
+                        </div>
+                        <div class="st1">
+                            <label for="pwd1" class="t1">密碼:</label>
+                            <input type="password" id="idPwd" name="pwd" maxlength="16" onblur=" testPass(document.getElementById('idPwd').value.toUpperCase())" required /><span id="Passwordinput" style="color:red;"></span>
+                        </div>
+                        <div>
+                            <label style="margin-right:0px;color:#808080; margin-left:100px;">1.不可空白 2.至少6個字以上 3.必須包含"英文"、"数字"、"特殊符号"</label>
+                        </div>
+                        <div class="st1">
+                            <label for="bridate" class="t1">生日:</label>
+                            <input type="text" id="bridate" name="bridate" placeholder="ex:2000/02/29" onblur="ValidateDate(document.getElementById('bridate').value)" /><span id="birdateinput" style="color:red;"></span>
+                        </div>
+                        <div>
+                            <label style="margin-right:0px; color:#808080; margin-left:100px;">格式西元年/月/日 yyyy/MM/dd</label>
+                        </div>
+                        <div class="st1">
+                            <label class="t1">性別:</label>
+                            <input type="radio" name="gender" value="male" id="m1" /><label for="m1">男</label>
+                            <input type="radio" name="gender" value="female" id="f1" /><label for="f1">女</label>
+                        </div>
+                        <div>
+                            <label style="margin-right:0px; color:#808080; margin-left:100px;"></label>
+                        </div>
+                        <div class="st1">
+                            <label class="t1">生日:</label><input type="date" name="birth" />
+                        </div>
+                        <div class="sub">
+                            <input type="submit" value="送出" />
+                            <input type="reset" value="清除" />
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            </div>
+        </div><!--end allpage-->
+        <script>
+            function checkName() {
+                var UserName = document.getElementById("account1").value;
+                var UserNamelen = UserName.length;
+                if (UserName == "") {
+                    showAlert("usernameinput", "稱不可為空白!!")
+                    return false;
                 }
-                document.write("</tbody>");
-                document.write("</table>");
-            </script>
-        </div>
-        <a name=”Register”></a>
-        <div class="container-fluid" style="background-color:#63aaf1">
-            <form action="#" method="get" enctype="multipart/form-data">
-                <fieldset style="border:2px solid green; margin:auto;">
-                    <legend>個人資料</legend>
-                    <div class="st1">
-                        <label for="account1" class="t1">姓名:</label>
-                        <input type="text" name="account" id="account1" size="10" placeholder="guest" autocomplete="off" onblur=" checkName()" /><span id="usernameinput" style="color:red;"></span>
-                    </div>
-                    <div>
-                        <label style="margin-right:0px;color:#808080; margin-left:100px; padding:0px;">1.不可空白 2.至少兩個字以上 3.必須全部為中文字</label>
-                    </div>
-                    <div class="st1">
-                        <label for="pwd1" class="t1">密碼:</label>
-                        <input type="password" id="idPwd" name="pwd" maxlength="16" onblur=" testPass(document.getElementById('idPwd').value.toUpperCase())" required /><span id="Passwordinput" style="color:red;"></span>
-                    </div>
-                    <div>
-                        <label style="margin-right:0px;color:#808080; margin-left:100px;">1.不可空白 2.至少6個字以上 3.必須包含"英文"、"数字"、"特殊符号"</label>
-                    </div>
-                    <div class="st1">
-                        <label for="bridate" class="t1">生日:</label>
-                        <input type="text" id="bridate" name="bridate" placeholder="ex:2000/02/29" onblur="ValidateDate(document.getElementById('bridate').value)" /><span id="birdateinput" style="color:red;"></span>
-                    </div>
-                    <div>
-                        <label style="margin-right:0px; color:#808080; margin-left:100px;">格式西元年/月/日 yyyy/MM/dd</label>
-                    </div>
-                    <div class="st1">
-                        <label class="t1">性別:</label>
-                        <input type="radio" name="gender" value="male" id="m1" /><label for="m1">男</label>
-                        <input type="radio" name="gender" value="female" id="f1" /><label for="f1">女</label>
-                    </div>
-                    <div>
-                        <label style="margin-right:0px; color:#808080; margin-left:100px;"></label>
-                    </div>
-                    <div class="st1">
-                        <label class="t1">生日:</label><input type="date" name="birth" />
-                    </div>
-                    <div class="sub">
-                        <input type="submit" value="送出" />
-                        <input type="reset" value="清除" />
-                    </div>
-                </fieldset>
-            </form>
-        </div>
+                else if (UserNamelen >= 2) {
+                    for (var i = 0; i < UserNamelen; i++) {
+                        if (UserName.charCodeAt(i) < 0x4E00 || UserName.charCodeAt(i) > 0x9FA5) {
+                            showAlert("usernameinput", "輸入非中文，請重新輸入");
+                            break;
+                        }
+                        else { showAlert("usernameinput", "密碼正確"); }
+                    }
+                }
+            }
+            function testPass(str) {
+                var rC =
+                    {
+                        //lW: '[a-z]',
+                        uW: '[A-Z]',
+                        nW: '[0-9]',
+                        sW: '[\\u0020-\\u002F\\u003A-\\u0040\\u005B-\\u0060\\u007B-\\u007E]'
+                    };
+                function Reg(str, rStr) {
+                    var reg = new RegExp(rStr);
+                    if (reg.test(str)) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+                if (str.length < 6) {
+                    showAlert("Passwordinput", "密碼長度太短");
+                    return false;
+                }
+                else {
+                    var tR =
+                        {
+                            // l: Reg(str, rC.lW),
+                            u: Reg(str, rC.uW),
+                            n: Reg(str, rC.nW),
+                            s: Reg(str, rC.sW)
+                        };
+                    if ((tR.s && tR.u && tR.n)) {
+                        showAlert("Passwordinput", "密码符合要求");
+                        return true;
+                    }
+                    else {
+                        showAlert("Passwordinput", '密码须有"英文"、"数字"、"特殊符号"');
+                        return false;
+                    }
+                }
+            }
+            //檢查日期格式是否正確
+            function ValidateDate(dtValue) {
+                var dtRegex = new RegExp(/^[0-9]{4}[/](0[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])$/);
+                var dtValueinn = dtValue;
+                if (dtRegex.test(dtValueinn)) {
+                    if (isExistDate(dtValueinn)) {
+                        showAlert("birdateinput", "格式正確 有這天");
+                        return true;
+                    }
+                    else {
+                        showAlert("birdateinput", "格式正確 但沒這天");
+                        return false;
+                    }
 
-    </div><!--end allpage-->
+                }
+                else {
+                    showAlert("birdateinput", "格式錯誤");
+                    return false;
+                }
+            }
+            //檢查是否閏年
+            function isExistDate(dateStr) { // yyyy/mm/dd
+                var dateObj = dateStr.split('/');
+                //列出12個月，每月最大日期限制
+                var limitInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+                var theYear = parseInt(dateObj[0]);
+                var theMonth = parseInt(dateObj[1]);
+                var theDay = parseInt(dateObj[2]);
+                var isLeap = new Date(theYear, 1, 29).getDate() === 29; // 是否為閏年?
+
+                if (isLeap) { // 若為閏年，將二月的最大日期限制改為 29
+                    limitInMonth[1] = 29;
+                }
+
+                // 比對該日是否超過每個月份最大日期限制
+                return theDay <= limitInMonth[theMonth - 1]
+            }
+            function showAlert(id, msg) {
+                document.getElementById(id).style.color = "red";
+                document.getElementById(id).innerHTML = "<img src=images/error.png>" + msg;
+            }
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                for (var i = 1; i <= 7; i++) {
+                    var x = document.createElement("img");
+                    x.setAttribute("src", "images/" + i + "b.png");
+                    x.setAttribute("class", "point");
+                    x.setAttribute("id", "pic" + i);
+                    document.getElementById("numbpicarea").appendChild(x)
+
+                }
+
+                var imgs = document.querySelectorAll("img.point");//標籤.class
+                var imgsLen = imgs.length;
+                for (var i = 0; i < imgsLen; i++) {
+                    imgs[i].addEventListener("mouseover", mouseOver);
+                    //imgs[i].addEventListener("mouseout", mouseOut);
+                    //imgs[i].addEventListener("click", Click);
+                }
+                document.getElementById("firstpic").addEventListener("click", showfirstpic);
+                document.getElementById("lastpic").addEventListener("click", showlastpic);
+                document.getElementById("play").addEventListener("click", starttimer);
+                document.getElementById("pause").addEventListener("click", stoptimer);
+            });
+            var intervalID = window.setInterval(playpic, 4000);
+
+            function mouseOver(event) {
+                var picnumb = ((event.target.id).charAt(3));
+                document.getElementById("idImg").setAttribute("src", "images/cat" + picnumb + ".jpg");
+                document.getElementById("idImg").setAttribute("class", "frame");
+            }
+            function playpic() {
+                var fullName = document.getElementById("idImg").src
+                var fullNameArr = fullName.split("/");
+                var numNext = parseInt(fullNameArr[5].charAt(3)) + 1;
+                if (numNext == 8) {
+                    numNext = 1;
+                    document.getElementById("idImg").src = "images/cat" + numNext + ".jpg";
+                }
+                else {
+                    document.getElementById("idImg").src = "images/cat" + numNext + ".jpg";
+                }
+            }
+            function starttimer() {
+                intervalID = window.setInterval(playpic, 4000);
+            }
+            function stoptimer() {
+                window.clearInterval(intervalID);
+            }
+            function showfirstpic() {
+                numNext = 1;
+                document.getElementById("idImg").src = "images/cat" + numNext + ".jpg";
+            }
+            function showlastpic() {
+                numNext = 7;
+                document.getElementById("idImg").src = "images/cat" + numNext + ".jpg";
+            }
+        </script>
+        <script>
+            for (i = 2010; i <= 2020; i++) {
+                document.getElementById("yearlist").insertAdjacentHTML("beforeend", "<option value='" + i + "'>" + i + "</option>");
+            }
+            for (i = 1; i <= 12; i++) {
+                document.getElementById("monthlist").insertAdjacentHTML("beforeend", "<option value='" + i + "'>" + i + "</option>");
+            }
+            for (i = 1; i <= 31; i++) {
+                document.getElementById("daylist").insertAdjacentHTML("beforeend", "<option value='" + i + "'>" + i + "</option>");
+            }
+            document.addEventListener("DOMContentLoaded", function () {
+                document.getElementById("monthlist").addEventListener("change", checkday);
+                document.getElementById("monthlist").addEventListener("change", presentdate);
+                document.getElementById("yearlist").addEventListener("change", presentdate);
+                document.getElementById("daylist").addEventListener("change", presentdate);
+            });
+
+            function checkday() {
+                var selectedyear = parseInt(document.getElementById("yearlist").value);
+                var selectedmonth = parseInt(document.getElementById("monthlist").value);
+                var bigmonth = [1, 3, 5, 7, 8, 10, 12];
+
+                if ((bigmonth.indexOf(selectedmonth)) == -1) {
+                    if (selectedmonth == 2) {
+                        var ctrl2 = document.getElementById("daylist");
+                        for (var i = 0; i < ctrl2.options.length;) {
+                            ctrl2.removeChild(ctrl2.options[i]);
+                        }
+
+                        if (isExistDate(selectedyear)) {
+                            for (i = 1; i <= 29; i++) {
+                                document.getElementById("daylist").insertAdjacentHTML("beforeend", "<option value='" + i + "'>" + i + "</option>");
+                            }
+                        }
+                        else {
+                            for (i = 1; i <= 28; i++) {
+                                document.getElementById("daylist").insertAdjacentHTML("beforeend", "<option value='" + i + "'>" + i + "</option>");
+                            }
+                        }
+
+                    }
+                    else {
+                        var ctrl2 = document.getElementById("daylist");
+                        for (var i = 0; i < ctrl2.options.length;) {
+                            ctrl2.removeChild(ctrl2.options[i]);
+                        }
+                        for (i = 1; i <= 30; i++) {
+                            document.getElementById("daylist").insertAdjacentHTML("beforeend", "<option value='" + i + "'>" + i + "</option>");
+                        }
+                    }
+                }
+                else {
+                    var ctrl2 = document.getElementById("daylist");
+                    for (var i = 0; i < ctrl2.options.length;) {
+                        ctrl2.removeChild(ctrl2.options[i]);
+                    }
+                    for (i = 1; i <= 31; i++) {
+                        document.getElementById("daylist").insertAdjacentHTML("beforeend", "<option value='" + i + "'>" + i + "</option>");
+                    }
+                }
+
+            }
+            function isExistDate(theYear) { // yyyy/mm/dd
+                var isLeap = new Date(theYear, 1, 29).getDate() === 29; // 是否為閏年?
+                // 比對該日是否超過每個月份最大日期限制
+                return isLeap
+            }
+            function presentdate() {
+                var selectedyear = parseInt(document.getElementById("yearlist").value);
+                var selectedmonth = parseInt(document.getElementById("monthlist").value);
+                var selectedday = parseInt(document.getElementById("daylist").value);
+                document.getElementById("showdate").innerText = "您選擇的日期是" + selectedyear + "年" + selectedmonth + "月" + selectedday + "日";
+            };
+
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                //document.getElementById("star1").addEventListener("click", rateTheStar1);  //事件繫結，滑鼠滑入
+                var imgs = document.querySelectorAll("img.star");//標籤.class
+                var imgsLen = imgs.length;
+                for (var i = 0; i < imgsLen; i++) {
+                    imgs[i].addEventListener("mouseover", mouseOver);
+                    imgs[i].addEventListener("mouseout", mouseOut);
+                    imgs[i].addEventListener("click", Click);
+                }
+            });
+            function mouseOver() {
+                var targetid = event.currentTarget.id;
+                for (i = 1; i <= targetid; i++) {
+                    document.getElementById(i).src = "images/chngstar.gif";
+                }
+
+            }
+            function mouseOut() {
+                var targetid = event.currentTarget.id;
+                for (i = 1; i <= targetid; i++) {
+                    document.getElementById(i).src = "images/star.gif";
+                }
+            }
+            function Click() {
+                var imgs = document.querySelectorAll("img.star");//標籤.class
+                var imgsLen = imgs.length;
+                for (var i = 0; i < imgsLen; i++) {
+                    imgs[i].removeEventListener("mouseout", mouseOut);
+                    imgs[i].removeEventListener("mouseover", mouseOver);
+                }
+                document.getElementById("rate").innerHTML = event.currentTarget.id + "颗星";
+            }
+        </script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script>
-        function checkName() {
-            var UserName = document.getElementById("account1").value;
-            var UserNamelen = UserName.length;
-            if (UserName == "") {
-                showAlert("usernameinput", "稱不可為空白!!")
-                return false;
-            }
-            else if (UserNamelen >= 2) {
-                for (var i = 0; i < UserNamelen; i++) {
-                    if (UserName.charCodeAt(i) < 0x4E00 || UserName.charCodeAt(i) > 0x9FA5) {
-                        showAlert("usernameinput", "輸入非中文，請重新輸入");
-                        break;
-                    }
-                    else { showAlert("usernameinput", "密碼正確"); }
-                }
-            }
-        }
-        function testPass(str) {
-            var rC =
-                {
-                    //lW: '[a-z]',
-                    uW: '[A-Z]',
-                    nW: '[0-9]',
-                    sW: '[\\u0020-\\u002F\\u003A-\\u0040\\u005B-\\u0060\\u007B-\\u007E]'
-                };
-            function Reg(str, rStr) {
-                var reg = new RegExp(rStr);
-                if (reg.test(str)) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            }
-            if (str.length < 6) {
-                showAlert("Passwordinput", "密碼長度太短");
-                return false;
-            }
-            else {
-                var tR =
-                    {
-                        // l: Reg(str, rC.lW),
-                        u: Reg(str, rC.uW),
-                        n: Reg(str, rC.nW),
-                        s: Reg(str, rC.sW)
-                    };
-                if ((tR.s && tR.u && tR.n)) {
-                    showAlert("Passwordinput", "密码符合要求");
-                    return true;
-                }
-                else {
-                    showAlert("Passwordinput", '密码须有"英文"、"数字"、"特殊符号"');
-                    return false;
-                }
-            }
-        }
-        //檢查日期格式是否正確
-        function ValidateDate(dtValue) {
-            var dtRegex = new RegExp(/^[0-9]{4}[/](0[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])$/);
-            var dtValueinn = dtValue;
-            if (dtRegex.test(dtValueinn)) {
-                if (isExistDate(dtValueinn)) {
-                    showAlert("birdateinput", "格式正確 有這天");
-                    return true;
-                }
-                else {
-                    showAlert("birdateinput", "格式正確 但沒這天");
-                    return false;
-                }
 
-            }
-            else {
-                showAlert("birdateinput", "格式錯誤");
-                return false;
-            }
-        }
-        //檢查是否閏年
-        function isExistDate(dateStr) { // yyyy/mm/dd
-            var dateObj = dateStr.split('/');
-            //列出12個月，每月最大日期限制
-            var limitInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-            var theYear = parseInt(dateObj[0]);
-            var theMonth = parseInt(dateObj[1]);
-            var theDay = parseInt(dateObj[2]);
-            var isLeap = new Date(theYear, 1, 29).getDate() === 29; // 是否為閏年?
-
-            if (isLeap) { // 若為閏年，將二月的最大日期限制改為 29
-                limitInMonth[1] = 29;
-            }
-
-            // 比對該日是否超過每個月份最大日期限制
-            return theDay <= limitInMonth[theMonth - 1]
-        }
-        function showAlert(id, msg) {
-            document.getElementById(id).style.color = "red";
-            document.getElementById(id).innerHTML = "<img src=images/error.png>" + msg;
-        }
-    </script>
 </body>
 </html>
