@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!--<script src="https://use.fontawesome.com/e8bbdd1d52.js"></script>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font: 12px/1.5 "微軟雅黑";
+            background-color: #2f2f2f;
+        }
+
+        a {
+            text-decoration: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .warp {
+            width: 1000px;
+            margin: 10px auto;
+            border: 1px solid red;
+        }
+
+        .slide {
+            height: 200px;
+            margin: 150px auto;
+            position: relative;
+        }
+
+            .slide li {
+                position: absolute;
+                left: 200px;
+                top: 0;
+            }
+
+                /*.slide li img {
+                    width: 100%;
+                    border: 0;
+                    vertical-align: top;
+                }*/
+
+        ul {
+            list-style: none;
+        }
+
+        .arrow {
+            opacity: 0;
+        }
+
+        .prev, .next {
+            width: 76px;
+            height: 112px;
+            position: absolute;
+            top: 50%;
+            margin-top: -56px;
+            background: url(‘images/prev.png‘) no-repeat;
+            z-index: 999;
+        }
+
+        .next {
+            right: 0;
+            background-image: url(‘./images/next.png‘);
+        }
+    </style>
+</head>
+<body onload="init()">
+    <div class="container">
+        <div class="row">
+            <div class="wrap" id="wrap">
+                <div class="slide" id="slide">
+                    <ul>
+                        <!-- 五張圖片 -->
+                        <li id="1"><a href="#"><img src="images/cat1.jpg"></a></li>
+                        <li id="2"><a href="#"><img src="images/cat2.jpg"></a></li>
+                        <li id="3"><a href="#"><img src="images/cat3.jpg"></a></li>
+                        <li id="4"><a href="#"><img src="images/cat4.jpg"></a></li>
+                        <li id="5"><a href="#"><img src="images/cat5.jpg"></a></li>
+                    </ul>
+                    <!-- 左右切換按鈕 -->
+                    <div class="arrow" id="arrow">
+                        <a href="javascript:;" class="prev"></a>
+                        <a href="javascript:;" class="next"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function init() {
+            allX = document.body.clientWidth;
+            allY = document.body.clientHeight;
+            var x = document.getElementById('5');
+            alert(x);
+            alert(x.offsetTop);
+            x.offsetTop + "5px";
+            x.offsetTop + "10px";
+            x.offsetTop + "50px";
+            x.offsetTop + "5px";
+        }
+        //var intervalID = window.setInterval(run, 500);
+
+        
+
+
+        //function run() { x.style.left = "x.style.left + 5" px; };
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+</body>
+</html>

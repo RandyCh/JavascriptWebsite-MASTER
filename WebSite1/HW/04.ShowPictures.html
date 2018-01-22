@@ -4,19 +4,49 @@
     <meta charset="utf-8" />
     <title></title>
     <style>
-        .frame{ width:300px;
-                height:300px;
+        .frame {
+            width: 300px;
+            height: 300px;
+            background-size: cover;
         }
         .but {
             width: 50px;
             height: 50px;
         }
+        .point {
+            opacity: 0.4;
+        }
+            .point:hover {
+                opacity: 1.0;
+         }
+        .abgne_product_arrow_silder {
+            width: 450px;
+            height: 250px;
+            position: relative;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+            .abgne_product_arrow_silder ul, .abgne_product_arrow_silder ul li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+                .abgne_product_arrow_silder ul li {
+                    position: absolute;
+                    z-index: 1;
+                }
+
+                    .abgne_product_arrow_silder ul li.selected {
+                        z-index: 99;
+                    }
     </style>
-    <script src="https://use.fontawesome.com/e8bbdd1d52.js"></script>
+    <!--<script src="https://use.fontawesome.com/e8bbdd1d52.js"></script>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-     <div class="allpage">
+    <div class="allpage">
         <header>
             <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
                 <a class="navbar-brand" href="#">Top navbar</a>
@@ -36,31 +66,57 @@
                 </div>
             </nav>
         </header>
-<article>
-    <div style="width:100%;">
-      <form>
-        <fieldset style="width:300px;margin:auto;">
-            <legend style="text-shadow:-1px -1px white, 1px 1px #333">Ads Carousel</legend>
-            <div>
-                <img id="idImg" src="images/cat1.jpg" class="frame" />
-            </div>
-                    <div id="numbpicarea" style="margin-left:35px;">
-                    </div>
-            <div style="line-height:5px"></div>
-            <br>
-                <div style="width:300px; margin-left:75px">
-                    <div style="width:220px">
-                        <a class="btn btn-default btn-sm" href="#" id="firstpic"><i class="fa fa-fast-backward" aria-hidden="true"></i></a>
-                         <a class="btn btn-default btn-sm" href="#" id="play"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        <a class="btn btn-default btn-sm" href="#" id="pause"><i class="fa fa-pause" aria-hidden="true"></i></a>
-                        <a class="btn btn-default btn-sm" href="#" id="lastpic"><i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div style="width:100%;">
+                        <form>
+                            <fieldset style="width:300px;margin:auto;">
+                                <legend style="text-shadow:-1px -1px white, 1px 1px #333">Ads Carousel</legend>
+                                <!--<div>
+                              <img id="idImg" src="images/cat1.jpg" class="frame" /><i id="numbpicarea" style="margin-left:35px;"></i>
+                        </div>-->
+                                <div id="idImg" class="frame" style="background-image:url('images/cat1.jpg')">
+                                    <i id="numbpicarea" style="margin-left:35px;"></i>
+                                </div>
+
+                                <div style="line-height:5px"></div>
+                                <br>
+                                <div style="width:300px; margin-left:75px">
+                                    <div style="width:220px">
+                                        <a class="btn btn-default btn-sm" href="#" id="firstpic"><i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+                                        <a class="btn btn-default btn-sm" href="#" id="play"><i class="fa fa-play" aria-hidden="true"></i></a>
+                                        <a class="btn btn-default btn-sm" href="#" id="pause"><i class="fa fa-pause" aria-hidden="true"></i></a>
+                                        <a class="btn btn-default btn-sm" href="#" id="lastpic"><i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
-        </fieldset>
-    </form>
+                <div class="col-xs-6">
+                    <div class="abgne_product_arrow_silder">
+                        <ul>
+                            <li class="selected"><img src="images/cat1.jpg" />
+                            </li>
+                            <li><img src="images/cat2.jpg" />
+                            </li>
+                            <li><img src="images/cat3.jpg" />
+                            </li>
+                            <li><img src="images/cat4.jpg" />
+                            <li>
+                            <li><img src="images/cat5.jpg" />
+                            <li>
+                            <li><img src="images/cat6.jpg" />
+                            <li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-  </article>
-</div>
+     </div>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         for (var i = 1; i <= 7; i++) {
@@ -88,34 +144,36 @@
 
     function mouseOver(event) {
         var picnumb = ((event.target.id).charAt(3));
-        document.getElementById("idImg").setAttribute("src", "images/cat" + picnumb + ".jpg");
+        document.getElementById("idImg").setAttribute("style", "background-image:url('images/cat" + picnumb + ".jpg')");
         document.getElementById("idImg").setAttribute("class", "frame");
+        document.getElementById(event.target.id).setAttribute("style",)
     }
     function playpic() {
-        var fullName = document.getElementById("idImg").src
+        var fullName = document.getElementById("idImg").style.backgroundImage
         var fullNameArr = fullName.split("/");
-        var numNext = parseInt(fullNameArr[5].charAt(3)) + 1;
+        var numNext = parseInt(fullNameArr[1].charAt(3)) + 1;
         if (numNext==8) {
             numNext=1;
-            document.getElementById("idImg").src="images/cat"+ numNext +".jpg";
+            document.getElementById("idImg").setAttribute("style", "background-image:url('images/cat" + numNext + ".jpg')");
         }
         else {
-            document.getElementById("idImg").src="images/cat"+ numNext +".jpg";
+            document.getElementById("idImg").setAttribute("style", "background-image:url('images/cat" + numNext + ".jpg')");
         }
     }
     function starttimer() {
        intervalID = window.setInterval(playpic, 4000);
     }
+
     function stoptimer() {
         window.clearInterval(intervalID);
     }
     function showfirstpic() {
         numNext = 1;
-        document.getElementById("idImg").src = "images/cat" + numNext + ".jpg";
+        document.getElementById("idImg").setAttribute("style", "background-image:url('images/cat" + numNext + ".jpg')");
     }
     function showlastpic() {
         numNext = 7;
-        document.getElementById("idImg").src = "images/cat" + numNext + ".jpg";
+        document.getElementById("idImg").setAttribute("style", "background-image:url('images/cat" + numNext + ".jpg')");
     }
 </script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

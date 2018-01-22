@@ -21,7 +21,7 @@
         function delCookie(key) {
             var exp = new Date(); 
             //alert(exp);
-            exp.setTime(exp.getTime() - (24 * 60 * 60 * 1000));
+            exp.setTime(exp.getTime() - (24 * 60 * 60 * 1000));//把exp date調到今天前一天 就過期了
             //alert(exp);
             //document.cookie = "name=Jack;expires=Mon 10 Dec 2018 20:47:11 GMT; path=/";
             document.cookie = key + "=" + "; expires=" + exp.toGMTString() + ";path=/";

@@ -328,16 +328,17 @@
                     x.setAttribute("class", "point");
                     x.setAttribute("id", "pic" + i);
                     document.getElementById("numbpicarea").appendChild(x)
+                    x.addEventListener("mouseover", mouseOver2);
 
                 }
 
-                var imgs = document.querySelectorAll("img.point");//標籤.class
-                var imgsLen = imgs.length;
-                for (var i = 0; i < imgsLen; i++) {
-                    imgs[i].addEventListener("mouseover", mouseOver);
-                    //imgs[i].addEventListener("mouseout", mouseOut);
-                    //imgs[i].addEventListener("click", Click);
-                }
+                //var imgs = document.querySelectorAll("img.point");//標籤.class
+                //var imgsLen = imgs.length;
+                //for (var i = 0; i < imgsLen; i++) {
+                //    imgs[i].addEventListener("mouseover", mouseOver);
+                //    //imgs[i].addEventListener("mouseout", mouseOut);
+                //    //imgs[i].addEventListener("click", Click);
+                //}
                 document.getElementById("firstpic").addEventListener("click", showfirstpic);
                 document.getElementById("lastpic").addEventListener("click", showlastpic);
                 document.getElementById("play").addEventListener("click", starttimer);
@@ -345,9 +346,9 @@
             });
             var intervalID = window.setInterval(playpic, 4000);
 
-            function mouseOver(event) {
+            function mouseOver2(event) {
                 var picnumb = ((event.target.id).charAt(3));
-                document.getElementById("idImg").setAttribute("src", "images/cat" + picnumb + ".jpg");
+                document.getElementById("idImg").src="images/cat" + picnumb + ".jpg";
                 document.getElementById("idImg").setAttribute("class", "frame");
             }
             function playpic() {
