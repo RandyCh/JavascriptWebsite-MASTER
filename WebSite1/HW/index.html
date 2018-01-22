@@ -353,6 +353,8 @@
             }
             function playpic() {
                 var fullName = document.getElementById("idImg").src
+                //var fullName = document.getElementById("idImg").getAttribute("src");
+                alert(fullName);
                 var fullNameArr = fullName.split("/");
                 var numNext = parseInt(fullNameArr[5].charAt(3)) + 1;
                 if (numNext == 8) {
