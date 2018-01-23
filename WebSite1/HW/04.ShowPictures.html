@@ -109,8 +109,6 @@
                             <li>
                             <li><img src="images/cat6.jpg" />
                             <li>
-
-
                         </ul>
                     </div>
                 </div>
@@ -119,28 +117,32 @@
      </div>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        for (var i = 1; i <= 7; i++) {
-            var x = document.createElement("img");
-            x.setAttribute("src", "images/" + i + "b.png");
-            x.setAttribute("class", "point");
-            x.setAttribute("id", "pic" + i);
-            document.getElementById("numbpicarea").appendChild(x)
-
-        }
-
-        var imgs = document.querySelectorAll("img.point");//標籤.class
-        var imgsLen = imgs.length;
-        for (var i = 0; i < imgsLen; i++) {
-            imgs[i].addEventListener("mouseover", mouseOver);
-            //imgs[i].addEventListener("mouseout", mouseOut);
-            //imgs[i].addEventListener("click", Click);
-        }
-        document.getElementById("firstpic").addEventListener("click", showfirstpic);
-        document.getElementById("lastpic").addEventListener("click", showlastpic);
-        document.getElementById("play").addEventListener("click", starttimer);
-        document.getElementById("pause").addEventListener("click", stoptimer);
+            Addpicpoint();
+            picpointevent(img, point);
+            document.getElementById("firstpic").addEventListener("click", showfirstpic);
+            document.getElementById("lastpic").addEventListener("click", showlastpic);
+            document.getElementById("play").addEventListener("click", starttimer);
+            document.getElementById("pause").addEventListener("click", stoptimer);
     });
-    var intervalID=window.setInterval(playpic, 4000);
+    intervalID = window.setInterval(playpic, 4000);
+        function Addpicpoint(){
+            for (var i = 1; i <= 7; i++) {
+                var x = document.createElement("img");
+                x.setAttribute("src", "images/" + i + "b.png");
+                x.setAttribute("class", "point");
+                x.setAttribute("id", "pic" + i);
+                document.getElementById("numbpicarea").appendChild(x)
+        }
+        //img.point
+            function picpointevent(tagname, classname) {
+                var imgs = document.querySelectorAll(tagname + "." + classname);//標籤.class
+                var imgsLen = imgs.length;
+                for (var i = 0; i < imgsLen; i++) {
+                    imgs[i].addEventListener("mouseover", mouseOver);
+                }
+            }
+
+   
 
     function mouseOver(event) {
         var picnumb = ((event.target.id).charAt(3));
