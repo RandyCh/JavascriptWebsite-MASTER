@@ -5,60 +5,80 @@
     <title></title>
     <style>
         #myContainer {
-            width: 400px;
-            height: 400px;
+            width: 225px;
+            height: 225px;
             position: relative;
             background: yellow;
             overflow:hidden;
+            padding:0px;
         }
-
         #myAnimation {
-            /*width: 50px;
-            height: 50px;*/
             position: absolute;
-            /*background: red;*/
+            width:9999px;
         }
-            #myAnimation ul{
-
+        #myAnimation ul,#myAnimation ul li {
+                    display:inline;
+                    list-style:none;
+                    padding:0px;
+                    margin:0px;
+        }
+            #myAnimation ul li a {
+                width: 225px;
+                height: 225px;
+                padding: 0px;
+                margin: 0px;
             }
-            #myAnimation ul li {
-                display: inline;
-                float: left;
-            }
+                #myAnimation ul li a img {
+                    padding: 0px;
+                    margin: 0px;
+                }
 
-    </style>
+</style>
 </head>
 <body>
     <h1>My First JavaScript Animation</h1>
-
-    <div id="myContainer">
-        <div id="myAnimation">
-            My animation will go here
-            <ul>
-                <li> <img src="images/cat2.jpg" /></li>
-                <li> <img src="images/cat3.jpg" /></li>
-                <li>  <img src="images/cat4.jpg" /></li>
-                <li> <img src="images/cat5.jpg" /></li>
-            </ul>
-           
-        </div>
+    <div id="myContainer"><div id="myAnimation"><ul><li><a href="https://www.google.com.tw/"><img src="images/cat1.jpg"/></a></li
+><li><a href="https://w3.iiiedu.org.tw/"><img src="images/cat2.jpg"/></a></li
+><li><a href="https://www.google.com.tw/"><img src="images/cat3.jpg"/></a></li
+><li><a href="https://www.google.com.tw/"><img src="images/cat4.jpg"/></a></li
+><li><a href="https://www.google.com.tw/"><img src="images/cat5.jpg"/></a></li
+><li><a href="https://www.google.com.tw/"><img src="images/cat6.jpg"/></a></li
+><li><a href="https://www.google.com.tw/"><img src="images/cat7.jpg"/></a></li
+></ul></div>
     </div>
-
+    <button id="but">xxxxx</button>
 <script>
-
         var elem = document.getElementById("myAnimation");
         var pos = 0;
-        var id = setInterval(frame, 10);
+        var pic = 0;
+        var id = setInterval(frame, 2000);
+        document.getElementById("but").addEventListener("click", frame);
         function frame() {
             //if (pos == 350) {
             //    clearInterval(id);
             //} else {
-                pos++;
-                //elem.style.top = pos + 'px';
-                elem.style.left = pos + 'px';
-            //}
-        }
+            if (pic==6) {
+                pos = pos + 225*6;
+                //elem.style.top =300+"px";
+                elem.style.left = pos +'px';
+                //elem.style.top = -300 +"px";
+                pic=0
+            }
+            else {
+               
 
+                for (var i = 0; i < 225; i++) {
+                    pos = pos - 1;
+                    setTimeout(function () { elem.style.left = pos + 'px'; }, 1000);
+                }
+                //}
+                //pos = pos-225;
+                //elem.style.top = pos + 'px';
+                //elem.style.left = pos + 'px';
+                //}
+                pic++;
+            }
+        }
 </script>
 </body>
 </html>
